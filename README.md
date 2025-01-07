@@ -1,4 +1,4 @@
-# Alvaro-s_portfolio
+## Alvaro Gamundi
 Analytics Portfolio
 
 # BANK LOAN RISK SCORE ANALYZER
