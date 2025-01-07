@@ -32,7 +32,7 @@
         /* Efecto máquina de escribir */
         .typing-container {
             display: inline-block;
-            border-right: 2px solid black;
+            border-right: 2px solid black; /* Cursor visible para todo el texto */
             white-space: pre-wrap;
             overflow: hidden;
             font-size: 2rem;
@@ -113,7 +113,7 @@
         </div>
     </div>
     <script>
-        const typingText = "In this space, I showcase the cases I've worked on, focusing on the creation of Machine Learning models and Data Analysis projects.\nExplore my projects to learn more about my approach and skills.";
+        const typingText = "In this space, I showcase the cases I've worked on, focusing on the creation of Machine Learning models and Data Analysis projects. Explore my projects to learn more about my approach and skills.";
         const typingContainer = document.getElementById("typing-text");
         let index = 0;
 
@@ -121,12 +121,13 @@
             if (index < typingText.length) {
                 typingContainer.textContent += typingText[index];
                 index++;
-                setTimeout(type, 50);
+                setTimeout(type, 50); /* Controla la velocidad de escritura */
             }
         }
         type();
     </script>
 </body>
 </html>
+
 
 
