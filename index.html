@@ -49,6 +49,7 @@
             display: flex;
             justify-content: space-between;
             margin-top: 30px;
+            align-items: stretch; /* Asegura que las columnas tengan la misma altura */
         }
 
         .project-column {
@@ -63,7 +64,8 @@
         /* Estilo para las imágenes */
         .project-column img {
             width: 50%; /* Imagen reducida al 50% del ancho original */
-            height: auto; /* Mantiene la proporción de la imagen */
+            height: 300px; /* Establecer la altura de las imágenes para que tengan la misma altura */
+            object-fit: cover; /* Asegura que la imagen cubra el espacio sin distorsionarse */
             border-radius: 8px; /* Opcional: Bordes redondeados */
             margin-bottom: 15px; /* Espacio entre la imagen y el enlace */
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para un efecto profesional */
@@ -205,9 +207,6 @@
     </script>
 </body>
 </html>
-
-
-
 
 
 
