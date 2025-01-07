@@ -15,90 +15,87 @@
             padding: 0;
         }
 
-        /* Estilo para los encabezados */
+        /* Encabezados */
         h1 {
-            text-align: left; /* Alineación a la izquierda */
+            text-align: left;
             padding: 20px;
-            color: black; /* Asegura que los encabezados sean visibles */
-            font-weight: 700; /* Poner los títulos en negrita */
-            font-size: 4rem; /* Doble de tamaño (ajustado a 4rem) */
+            color: black;
+            font-weight: 700;
+            font-size: 4rem;
         }
 
-        /* Estilo general del contenedor */
+        /* Contenedor general */
         .content {
             padding: 50px 20px;
         }
 
-        /* Estilo para el texto con efecto máquina de escribir */
+        /* Efecto máquina de escribir */
         .typing-container {
             display: inline-block;
-            border-right: 2px solid black; /* Barra parpadeante */
-            white-space: pre-wrap; /* Permite que el texto salte de línea */
-            overflow: hidden; /* Esconde el texto no visible */
+            border-right: 2px solid black;
+            white-space: pre-wrap;
+            overflow: hidden;
             font-size: 2rem;
-            animation: blink 0.7s step-end infinite alternate; /* Efecto de parpadeo */
+            animation: blink 0.7s step-end infinite alternate;
         }
 
-        /* Efecto de parpadeo para la barra */
         @keyframes blink {
-            from {
-                border-right-color: black;
-            }
-            to {
-                border-right-color: transparent;
-            }
+            from { border-right-color: black; }
+            to { border-right-color: transparent; }
         }
 
-        /* Estilo para las columnas */
+        /* Estilo de las columnas */
         .projects {
-            display: flex; /* Flexbox para crear las columnas */
-            justify-content: space-between; /* Asegura que haya espacio entre las columnas */
+            display: flex;
+            justify-content: space-between;
             margin-top: 30px;
         }
 
         .project-column {
-            width: 45%; /* Cada columna ocupa el 45% del ancho disponible */
-            margin: 10px 0;
+            width: 45%;
+            margin-bottom: 30px;
+            text-align: center; /* Centra el contenido dentro de la columna */
         }
 
-        /* Títulos dentro de las columnas */
-        .project-column h3 {
-            text-align: left; /* Alineado a la izquierda */
-            color: black;
-            font-size: 2rem; /* Tamaño más grande del título */
-            margin-bottom: 15px; /* Espacio entre el título y el enlace */
+        /* Estilo para las imágenes */
+        .project-column img {
+            width: 100%; /* Ajusta la imagen al ancho de la columna */
+            height: auto; /* Mantiene la proporción de la imagen */
+            border-radius: 8px; /* Opcional: Bordes redondeados */
+            margin-bottom: 15px; /* Espacio entre la imagen y el título */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para un efecto profesional */
         }
 
-        /* Estilo para la caja del enlace (botón rectangular con fondo gris) */
+        /* Botones */
         .button {
-            background-color: #B0B0B0; /* Fondo gris */
-            padding: 10px 20px; /* Ajustar el tamaño del botón */
+            background-color: #B0B0B0;
+            padding: 10px 20px;
             color: black;
             text-decoration: none;
             font-size: 18px;
             font-weight: 600;
-            display: inline-block; /* Asegura que el botón se muestre correctamente */
+            display: inline-block;
             border: none;
-            width: auto; /* El ancho se ajusta al contenido */
-            box-sizing: border-box; /* Hace que el padding no afecte el tamaño del ancho */
-            border-radius: 5px; /* Bordes redondeados */
-            text-align: center; /* Centra el texto dentro del botón */
+            width: auto;
+            border-radius: 5px;
+            text-align: center;
         }
 
         .button:hover {
-            background-color: #888888; /* Efecto hover con fondo gris más oscuro */
+            background-color: #888888;
         }
     </style>
 </head>
 <body>
     <div class="content">
         <h1>Hello, welcome to my portfolio!</h1>
-        <div id="typing-effect" class="typing-container"></div> <!-- Contenedor para el efecto de escritura -->
+        <div class="typing-container" id="typing-text"></div>
 
         <!-- Proyectos en columnas -->
         <div class="projects">
             <!-- Columna 1: BANK LOAN RISK SCORE ANALYZER -->
             <div class="project-column">
+                <img src="risk_score.jpg" alt="Bank Loan Risk Project">
                 <h3>BANK LOAN RISK SCORE ANALYZER</h3>
                 <a href="https://appriskscoring-ehuke5ze63jgdfmnspqoqx.streamlit.app/" target="_blank" class="button">
                     Click here to access the app
@@ -107,6 +104,7 @@
 
             <!-- Columna 2: EMPLOYEE RETENTION ANALYZER -->
             <div class="project-column">
+                <img src="imagen_abandono.jpg" alt="Employee Retention Project">
                 <h3>EMPLOYEE RETENTION ANALYZER</h3>
                 <a href="https://employee-retention-analyzer-3djcxzp58ahwzwajrmjhy6.streamlit.app/" target="_blank" class="button">
                     Click here to access the app
@@ -114,23 +112,19 @@
             </div>
         </div>
     </div>
-
     <script>
-        // Texto a mostrar con el efecto de máquina de escribir
-        const text = "In this space, I showcase the cases I've worked on, focusing on the creation of Machine Learning models and Data Analysis projects. Explore my projects to learn more about my approach and skills.";
-        const typingContainer = document.getElementById("typing-effect");
-
-        let i = 0;
+        const typingText = "In this space, I showcase the cases I've worked on, focusing on the creation of Machine Learning models and Data Analysis projects.\nExplore my projects to learn more about my approach and skills.";
+        const typingContainer = document.getElementById("typing-text");
+        let index = 0;
 
         function type() {
-            if (i < text.length) {
-                typingContainer.innerHTML += text[i]; // Añadir un carácter al contenedor
-                i++;
-                setTimeout(type, 50); // Controlar la velocidad de escritura
+            if (index < typingText.length) {
+                typingContainer.textContent += typingText[index];
+                index++;
+                setTimeout(type, 50);
             }
         }
-
-        type(); // Iniciar el efecto
+        type();
     </script>
 </body>
 </html>
