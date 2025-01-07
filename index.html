@@ -6,16 +6,14 @@
     <title>Alvaro Gamundi - Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Cambiar el fondo de la página a gris claro */
         body {
-            background-color: #f1f1f1; /* Gris claro */
-            color: black; /* Cambiar color del texto a negro */
-            font-family: 'Roboto', sans-serif; /* Fuente Roboto */
+            background-color: #f1f1f1;
+            color: black;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
         }
 
-        /* Encabezados */
         h1 {
             text-align: left;
             padding: 20px;
@@ -24,24 +22,34 @@
             font-size: 4rem;
         }
 
-        /* Contenedor general */
         .content {
             padding: 50px 20px;
         }
 
-        /* Efecto máquina de escribir */
+        /* Contenedor para el texto animado */
         .typing-container {
-            display: inline-block;
-            border-right: 2px solid black; /* Cursor visible para todo el texto */
+            display: inline;
+            font-size: 2rem;
+            font-weight: 400;
             white-space: pre-wrap;
             overflow: hidden;
-            font-size: 2rem;
+            position: relative; /* Necesario para colocar el cursor correctamente */
+        }
+
+        /* Cursor animado */
+        .cursor {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 2px;
+            height: 1.2em;
+            background-color: black;
             animation: blink 0.7s step-end infinite alternate;
         }
 
         @keyframes blink {
-            from { border-right-color: black; }
-            to { border-right-color: transparent; }
+            from { opacity: 1; }
+            to { opacity: 0; }
         }
 
         /* Estilo de las columnas */
@@ -52,41 +60,39 @@
         }
 
         .project-column {
-            width: 45%; /* Cada columna ocupa el 45% del ancho */
+            width: 45%;
             margin-bottom: 30px;
-            text-align: center; /* Centra el contenido dentro de la columna */
+            text-align: center;
             display: flex;
-            flex-direction: column; /* Asegura que la imagen y el enlace estén alineados verticalmente */
-            align-items: center; /* Centra horizontalmente el contenido dentro de la columna */
+            flex-direction: column;
+            align-items: center;
         }
 
-        /* Estilo para las imágenes */
         .project-column img {
-            width: 50%; /* Imagen reducida al 50% del ancho original */
-            height: auto; /* Mantiene la proporción de la imagen */
-            border-radius: 8px; /* Opcional: Bordes redondeados */
-            margin-bottom: 15px; /* Espacio entre la imagen y el enlace */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para un efecto profesional */
+            width: 50%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        /* Estilo para los títulos como botones */
         .project-column a {
-            font-size: 1.5rem; /* Texto más pequeño */
+            font-size: 1.5rem;
             font-weight: bold;
             color: black;
-            text-decoration: none; /* Eliminar subrayado */
+            text-decoration: none;
             display: inline-block;
-            padding: 8px 12px; /* Reducir el tamaño del botón */
-            border: 2px solid transparent; /* Borde inicial transparente */
-            border-radius: 5px; /* Bordes redondeados */
-            transition: all 0.3s ease; /* Suaviza las transiciones */
+            padding: 8px 12px;
+            border: 2px solid transparent;
+            border-radius: 5px;
+            transition: all 0.3s ease;
         }
 
         .project-column a:hover {
-            background-color: #d6d6d6; /* Fondo gris claro al pasar el cursor */
-            color: black; /* Mantener el texto en negro */
-            border: 2px solid #c0c0c0; /* Borde gris claro */
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para resaltar */
+            background-color: #d6d6d6;
+            color: black;
+            border: 2px solid #c0c0c0;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
@@ -95,9 +101,7 @@
         <h1>Hello, welcome to my portfolio!</h1>
         <div class="typing-container" id="typing-text"></div>
 
-        <!-- Proyectos en columnas -->
         <div class="projects">
-            <!-- Columna 1: BANK LOAN RISK SCORE ANALYZER -->
             <div class="project-column">
                 <img src="risk_score.jpg" alt="Bank Loan Risk Project">
                 <a href="https://appriskscoring-ehuke5ze63jgdfmnspqoqx.streamlit.app/" target="_blank">
@@ -105,7 +109,6 @@
                 </a>
             </div>
 
-            <!-- Columna 2: EMPLOYEE RETENTION ANALYZER -->
             <div class="project-column">
                 <img src="imagen_abandono.jpg" alt="Employee Retention Project">
                 <a href="https://employee-retention-analyzer-3djcxzp58ahwzwajrmjhy6.streamlit.app/" target="_blank">
@@ -115,21 +118,33 @@
         </div>
     </div>
     <script>
-        const typingText = "In this space, I showcase the cases I've worked on, focusing on the creation of Machine Learning models and Data Analysis projects. Explore my projects to learn more about my approach and skills.";
+        const typingText = `In this space, I showcase the cases I've worked on, focusing on the creation of Machine Learning models and Data Analysis projects. Explore my projects to learn more about my approach and skills.`;
         const typingContainer = document.getElementById("typing-text");
-        let index = 0;
 
+        let index = 0;
         function type() {
             if (index < typingText.length) {
                 typingContainer.textContent += typingText[index];
                 index++;
-                setTimeout(type, 50); /* Controla la velocidad de escritura */
+                adjustCursor(); // Mover el cursor al final
+                setTimeout(type, 50);
             }
         }
+
+        function adjustCursor() {
+            const cursor = document.querySelector('.cursor');
+            if (!cursor) {
+                const newCursor = document.createElement('span');
+                newCursor.classList.add('cursor');
+                typingContainer.appendChild(newCursor);
+            }
+        }
+
         type();
     </script>
 </body>
 </html>
+
 
 
 
