@@ -6,22 +6,13 @@
     <title>Alvaro Gamundi - Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Cambiar el fondo de la página a gris claro y añadir un borde al contenido */
+        /* Cambiar el fondo de la página a gris claro */
         body {
-            background-color: #f4f4f9; /* Fondo gris más profesional */
+            background-color: #f1f1f1; /* Gris claro */
             color: black; /* Cambiar color del texto a negro */
             font-family: 'Roboto', sans-serif; /* Fuente Roboto */
             margin: 0;
             padding: 0;
-        }
-
-        /* Contenedor general con borde y fondo */
-        .content {
-            padding: 50px 20px;
-            border: 2px solid #ccc; /* Borde alrededor del contenido */
-            border-radius: 10px; /* Bordes redondeados */
-            background-color: white; /* Fondo blanco para el contenido */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
         }
 
         /* Encabezados */
@@ -31,6 +22,11 @@
             color: black;
             font-weight: 700;
             font-size: 4rem;
+        }
+
+        /* Contenedor general */
+        .content {
+            padding: 50px 20px;
         }
 
         /* Efecto máquina de escribir */
@@ -140,16 +136,9 @@
                     BANK LOAN RISK SCORE ANALYZER
                 </a>
                 <!-- Botón More Info y cuadro oculto -->
-                <a href="javascript:void(0);" class="more-info-btn" id="btn-more-info-1" onclick="toggleMoreInfo(1)">More Info</a>
+                <a href="javascript:void(0);" class="more-info-btn" onclick="toggleMoreInfo(1)">More Info</a>
                 <div class="more-info-content" id="more-info-1">
-                    <strong>Project Description:</strong><br>
-                    This project is based on a dataset from a U.S. bank, in which three Machine Learning models are developed to calculate the expected loss in the context of banking risk. The models accurately predict the financial impact of potential defaults, helping the institution better manage its risks and make informed decisions.<br><br>
-
-                    <strong>Technical Details:</strong><br>
-                    <ul>
-                        <li><strong>Logistic Regression:</strong> An essential model in the banking world due to its high explainability and widespread use in risk analysis. This model allows easy interpretation of results, which is crucial in the regulated banking environment.</li>
-                        <li><strong>LightGBM:</strong> Two algorithms based on this powerful framework were used, maximizing predictive accuracy and being ideal for working with large volumes of data. LightGBM is particularly effective in risk prediction and optimizing models with complex and imbalanced data.</li>
-                    </ul>
+                    Hola mundo
                 </div>
             </div>
 
@@ -160,7 +149,7 @@
                     EMPLOYEE RETENTION ANALYZER
                 </a>
                 <!-- Botón More Info y cuadro oculto -->
-                <a href="javascript:void(0);" class="more-info-btn" id="btn-more-info-2" onclick="toggleMoreInfo(2)">More Info</a>
+                <a href="javascript:void(0);" class="more-info-btn" onclick="toggleMoreInfo(2)">More Info</a>
                 <div class="more-info-content" id="more-info-2">
                     Hola mundo
                 </div>
@@ -182,18 +171,19 @@
         }
         type();
 
-        // Función para mostrar/ocultar la información adicional y cambiar el texto del botón
+        // Función para mostrar/ocultar la información adicional
         function toggleMoreInfo(id) {
             const content = document.getElementById(`more-info-${id}`);
-            const button = document.getElementById(`btn-more-info-${id}`);
-            
             if (content.style.display === "block") {
                 content.style.display = "none";
-                button.textContent = "More Info"; // Cambiar el texto del botón a "More Info"
             } else {
                 content.style.display = "block";
-                button.textContent = "Less Info"; // Cambiar el texto del botón a "Less Info"
             }
+        }
+    </script>
+</body>
+</html>
+
        
 
 
