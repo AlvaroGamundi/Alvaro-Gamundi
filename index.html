@@ -24,55 +24,31 @@
             font-size: 4rem; /* Doble de tamaño (ajustado a 4rem) */
         }
 
+        /* Estilo para el texto debajo de h1 */
         p {
             text-align: left; /* Alineación a la izquierda */
-            padding: 20px;
+            padding: 10px 20px; /* Asegura espacio alrededor del texto */
             color: black; /* Asegura que el texto sea visible */
             font-weight: 400;
-            font-size: 2rem; /* Doble de tamaño (ajustado a 2rem) */
+            font-size: 1.6rem; /* Texto más pequeño */
+            animation: typing 4s steps(40) 1s 1 normal both; /* Animación tipo máquina de escribir */
+            white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+            overflow: hidden; /* Esconde el texto mientras se está escribiendo */
         }
 
-        h2 {
-            text-align: left;
-            padding: 10px 20px;
-            color: black; /* Asegura que el título sea visible */
-            font-weight: 600;
-        }
-
-        /* Estilo para los enlaces */
-        a {
-            color: #4CAF50; /* Color del enlace */
-            text-decoration: none; /* Elimina el subrayado */
-            font-weight: 500;
-        }
-
-        a:hover {
-            color: #888888; /* Efecto hover: gris más oscuro */
+        /* Efecto máquina de escribir */
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
         }
 
         /* Estilo general del contenedor de contenido */
         .content {
             padding: 50px 20px;
-        }
-
-        /* Estilo para la caja del enlace (botón rectangular con fondo gris) */
-        .button {
-            background-color: #B0B0B0; /* Fondo gris */
-            padding: 10px 20px; /* Ajustar el tamaño del botón */
-            color: black;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: 600;
-            display: inline-block; /* Asegura que el botón se muestre correctamente */
-            border: none;
-            width: auto; /* El ancho se ajusta al contenido */
-            box-sizing: border-box; /* Hace que el padding no afecte el tamaño del ancho */
-            border-radius: 5px; /* Bordes redondeados */
-            text-align: center; /* Centra el texto dentro del botón */
-        }
-
-        .button:hover {
-            background-color: #888888; /* Efecto hover con fondo gris más oscuro */
         }
 
         /* Estilo para las columnas */
@@ -93,6 +69,37 @@
             color: black;
             font-size: 2rem; /* Tamaño más grande del título */
             margin-bottom: 15px; /* Espacio entre el título y el enlace */
+        }
+
+        /* Estilo para los enlaces */
+        a {
+            color: #4CAF50; /* Color del enlace */
+            text-decoration: none; /* Elimina el subrayado */
+            font-weight: 500;
+        }
+
+        a:hover {
+            color: #888888; /* Efecto hover: gris más oscuro */
+        }
+
+        /* Estilo para la caja del enlace (botón rectangular con fondo gris) */
+        .button {
+            background-color: #B0B0B0; /* Fondo gris */
+            padding: 10px 20px; /* Ajustar el tamaño del botón */
+            color: black;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            display: inline-block; /* Asegura que el botón se muestre correctamente */
+            border: none;
+            width: auto; /* El ancho se ajusta al contenido */
+            box-sizing: border-box; /* Hace que el padding no afecte el tamaño del ancho */
+            border-radius: 5px; /* Bordes redondeados */
+            text-align: center; /* Centra el texto dentro del botón */
+        }
+
+        .button:hover {
+            background-color: #888888; /* Efecto hover con fondo gris más oscuro */
         }
     </style>
 </head>
