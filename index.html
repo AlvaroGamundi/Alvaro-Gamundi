@@ -123,45 +123,36 @@
         const typingContainer = document.getElementById("typing-text");
 
         let index = 0;
-        let typingSpeed = 50;
-        let cursor;
+        let typingSpeed = 100;  // Velocidad de escritura
 
         function type() {
             if (index < typingText.length) {
                 typingContainer.textContent += typingText[index];
-
-                // Si se está añadiendo un espacio y se llega al final de la línea, se añade un salto de línea
-                if (typingText[index] === ' ' && typingContainer.scrollHeight > typingContainer.clientHeight) {
-                    typingContainer.textContent += '\n';
-                }
-
                 index++;
                 setTimeout(type, typingSpeed);
             }
         }
 
-        // Crear y animar el cursor
+        // Función para crear y manejar el cursor
         function createCursor() {
-            cursor = document.createElement('span');
+            const cursor = document.createElement('span');
             cursor.classList.add('cursor');
             typingContainer.appendChild(cursor);
-        }
 
-        // Actualizar la posición del cursor
-        function updateCursorPosition() {
-            const cursorPosition = typingContainer.scrollWidth;
-            cursor.style.left = cursorPosition + 'px';
+            // Reajustar la posición del cursor para que siga el texto
+            setInterval(() => {
+                const cursorPosition = typingContainer.scrollWidth;
+                cursor.style.left = cursorPosition + 'px';
+            }, 10);
         }
 
         // Iniciar el proceso
         createCursor();
         type();
-
-        // Actualizar la posición del cursor mientras se escribe
-        setInterval(updateCursorPosition, 10);
     </script>
 </body>
 </html>
+
 
 
 
