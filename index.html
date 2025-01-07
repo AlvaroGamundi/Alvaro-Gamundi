@@ -194,7 +194,7 @@
 
     <script>
         // Función para la animación de escritura
-        const text = "In this space, I showcase the cases I've worked on, focusing on the creation of Machine Learning models and Data Analysis projects. Explore my projects to learn more about my approach and skills.";;
+        const text = "In this space, I showcase the cases I've worked on, focusing on the creation of Machine Learning models and Data Analysis projects. Explore my projects to learn more about my approach and skills."; 
         let index = 0;
 
         function typeWriter() {
@@ -210,15 +210,20 @@
         // Función para alternar el cuadro "More Info"
         function toggleMoreInfo(id) {
             const infoContent = document.getElementById(`more-info-${id}`);
+            const moreInfoBtn = document.getElementById(`more-info-btn-${id}`);
+            
             if (infoContent.style.display === "block") {
                 infoContent.style.display = "none";
+                moreInfoBtn.textContent = "More Info"; // Cambia el texto a More Info
             } else {
                 infoContent.style.display = "block";
+                moreInfoBtn.textContent = "Less Info"; // Cambia el texto a Less Info
             }
         }
     </script>
 </body>
 </html>
+
 
 
 
