@@ -33,8 +33,8 @@
             font-weight: 400;
             white-space: pre-wrap;
             overflow: hidden;
-            position: relative; /* Necesario para colocar el cursor correctamente */
-            margin-bottom: 100px; /* Espacio para las imágenes más abajo */
+            position: relative;
+            margin-bottom: 100px;
         }
 
         /* Cursor animado */
@@ -53,7 +53,6 @@
             to { opacity: 0; }
         }
 
-        /* Estilo de las columnas */
         .projects {
             display: flex;
             justify-content: space-between;
@@ -118,33 +117,53 @@
             </div>
         </div>
     </div>
+
     <script>
         const typingText = `In this space, I showcase the cases I've worked on, focusing on the creation of Machine Learning models and Data Analysis projects. Explore my projects to learn more about my approach and skills.`;
         const typingContainer = document.getElementById("typing-text");
 
         let index = 0;
+        let lineIndex = 0; // Tracking which line the text is on
+        let typingSpeed = 50;
+
         function type() {
             if (index < typingText.length) {
+                // Agregar texto por carácter
                 typingContainer.textContent += typingText[index];
+
+                // Asegúrate de que el cursor esté al final de la línea actual
+                adjustCursor();
+
+                // Si llegamos a un salto de línea, movemos al siguiente "renglón"
+                if (typingText[index] === ' ' && lineIndex < 1) {
+                    lineIndex++; // Cambio de línea
+                    typingContainer.textContent += '\n'; // Salto de línea
+                }
+                
                 index++;
-                adjustCursor(); // Mover el cursor al final
-                setTimeout(type, 50);
+                setTimeout(type, typingSpeed);
             }
         }
 
         function adjustCursor() {
+            // El cursor debe seguir al final del texto en la línea actual
             const cursor = document.querySelector('.cursor');
             if (!cursor) {
                 const newCursor = document.createElement('span');
                 newCursor.classList.add('cursor');
                 typingContainer.appendChild(newCursor);
             }
+
+            // Posicionar el cursor correctamente al final
+            const lastText = typingContainer.textContent;
+            typingContainer.scrollTop = typingContainer.scrollHeight;
         }
 
         type();
     </script>
 </body>
 </html>
+
 
 
 
