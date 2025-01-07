@@ -119,6 +119,7 @@
             border-radius: 5px;
             font-size: 1rem;
             color: #333;
+            text-align: justify; /* Justifica el texto dentro del cuadro */
         }
     </style>
 </head>
@@ -136,7 +137,7 @@
                     BANK LOAN RISK SCORE ANALYZER
                 </a>
                 <!-- Botón More Info y cuadro oculto -->
-                <a href="javascript:void(0);" class="more-info-btn" onclick="toggleMoreInfo(1)">More Info</a>
+                <a href="javascript:void(0);" class="more-info-btn" id="more-info-btn-1" onclick="toggleMoreInfo(1)">More Info</a>
                 <div class="more-info-content" id="more-info-1">
                     <h3>Project Description:</h3>
                     <p>
@@ -158,7 +159,7 @@
                     EMPLOYEE RETENTION ANALYZER
                 </a>
                 <!-- Botón More Info y cuadro oculto -->
-                <a href="javascript:void(0);" class="more-info-btn" onclick="toggleMoreInfo(2)">More Info</a>
+                <a href="javascript:void(0);" class="more-info-btn" id="more-info-btn-2" onclick="toggleMoreInfo(2)">More Info</a>
                 <div class="more-info-content" id="more-info-2">
                     <h3>Project Description:</h3>
                     <p>Hello World! This section will contain more details about the project.</p>
@@ -181,18 +182,24 @@
         }
         type();
 
-        // Función para mostrar/ocultar la información adicional
+        // Función para mostrar/ocultar la información adicional y cambiar el texto del botón
         function toggleMoreInfo(id) {
             const content = document.getElementById(`more-info-${id}`);
+            const button = document.getElementById(`more-info-btn-${id}`);
+            
             if (content.style.display === "block") {
                 content.style.display = "none";
+                button.textContent = "More Info";
             } else {
                 content.style.display = "block";
+                button.textContent = "Less Info";
             }
         }
     </script>
 </body>
 </html>
+
+
 
 
        
