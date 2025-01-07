@@ -24,55 +24,29 @@
             font-size: 4rem; /* Doble de tamaño (ajustado a 4rem) */
         }
 
-        p {
-            text-align: left; /* Alineación a la izquierda */
-            padding: 20px;
-            color: black; /* Asegura que el texto sea visible */
-            font-weight: 400;
-            font-size: 2rem; /* Doble de tamaño (ajustado a 2rem) */
-        }
-
-        h2 {
-            text-align: left;
-            padding: 10px 20px;
-            color: black; /* Asegura que el título sea visible */
-            font-weight: 600;
-        }
-
-        /* Estilo para los enlaces */
-        a {
-            color: #4CAF50; /* Color del enlace */
-            text-decoration: none; /* Elimina el subrayado */
-            font-weight: 500;
-        }
-
-        a:hover {
-            color: #888888; /* Efecto hover: gris más oscuro */
-        }
-
-        /* Estilo general del contenedor de contenido */
+        /* Estilo general del contenedor */
         .content {
             padding: 50px 20px;
         }
 
-        /* Estilo para la caja del enlace (botón rectangular con fondo gris) */
-        .button {
-            background-color: #B0B0B0; /* Fondo gris */
-            padding: 10px 20px; /* Ajustar el tamaño del botón */
-            color: black;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: 600;
-            display: inline-block; /* Asegura que el botón se muestre correctamente */
-            border: none;
-            width: auto; /* El ancho se ajusta al contenido */
-            box-sizing: border-box; /* Hace que el padding no afecte el tamaño del ancho */
-            border-radius: 5px; /* Bordes redondeados */
-            text-align: center; /* Centra el texto dentro del botón */
+        /* Estilo para el texto con efecto máquina de escribir */
+        .typing-container {
+            display: inline-block;
+            border-right: 2px solid black; /* Barra parpadeante */
+            white-space: pre-wrap; /* Permite que el texto salte de línea */
+            overflow: hidden; /* Esconde el texto no visible */
+            font-size: 2rem;
+            animation: blink 0.7s step-end infinite alternate; /* Efecto de parpadeo */
         }
 
-        .button:hover {
-            background-color: #888888; /* Efecto hover con fondo gris más oscuro */
+        /* Efecto de parpadeo para la barra */
+        @keyframes blink {
+            from {
+                border-right-color: black;
+            }
+            to {
+                border-right-color: transparent;
+            }
         }
 
         /* Estilo para las columnas */
@@ -94,12 +68,32 @@
             font-size: 2rem; /* Tamaño más grande del título */
             margin-bottom: 15px; /* Espacio entre el título y el enlace */
         }
+
+        /* Estilo para la caja del enlace (botón rectangular con fondo gris) */
+        .button {
+            background-color: #B0B0B0; /* Fondo gris */
+            padding: 10px 20px; /* Ajustar el tamaño del botón */
+            color: black;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            display: inline-block; /* Asegura que el botón se muestre correctamente */
+            border: none;
+            width: auto; /* El ancho se ajusta al contenido */
+            box-sizing: border-box; /* Hace que el padding no afecte el tamaño del ancho */
+            border-radius: 5px; /* Bordes redondeados */
+            text-align: center; /* Centra el texto dentro del botón */
+        }
+
+        .button:hover {
+            background-color: #888888; /* Efecto hover con fondo gris más oscuro */
+        }
     </style>
 </head>
 <body>
     <div class="content">
-        <h1>Hello, welcome to my portfolio!</h1> <!-- Título grande -->
-        <p>In this space, I showcase the cases I've worked on, focusing on the creation of Machine Learning models and Data Analysis projects. Explore my projects to learn more about my approach and skills.</p>
+        <h1>Hello, welcome to my portfolio!</h1>
+        <div id="typing-effect" class="typing-container"></div> <!-- Contenedor para el efecto de escritura -->
 
         <!-- Proyectos en columnas -->
         <div class="projects">
@@ -120,6 +114,24 @@
             </div>
         </div>
     </div>
+
+    <script>
+        // Texto a mostrar con el efecto de máquina de escribir
+        const text = "In this space, I showcase the cases I've worked on, focusing on the creation of Machine Learning models and Data Analysis projects. \nExplore my projects to learn more about my approach and skills.";
+        const typingContainer = document.getElementById("typing-effect");
+
+        let i = 0;
+
+        function type() {
+            if (i < text.length) {
+                typingContainer.innerHTML += text[i]; // Añadir un carácter al contenedor
+                i++;
+                setTimeout(type, 50); // Controlar la velocidad de escritura
+            }
+        }
+
+        type(); // Iniciar el efecto
+    </script>
 </body>
 </html>
 
