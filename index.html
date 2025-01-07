@@ -50,7 +50,7 @@
             color: #888888; /* Efecto hover: gris más oscuro */
         }
 
-        /* Añadir algo de espacio al contenido */
+        /* Estilo general del contenedor de contenido */
         .content {
             padding: 50px 20px;
         }
@@ -70,18 +70,51 @@
         .button:hover {
             background-color: #888888; /* Efecto hover con fondo gris más oscuro */
         }
+
+        /* Estilo para las columnas */
+        .projects {
+            display: flex; /* Flexbox para crear las columnas */
+            justify-content: space-between; /* Asegura que haya espacio entre las columnas */
+            margin-top: 30px;
+        }
+
+        .project-column {
+            width: 45%; /* Cada columna ocupa el 45% del ancho disponible */
+            margin: 10px 0;
+        }
+
+        /* Títulos dentro de las columnas */
+        .project-column h3 {
+            text-align: center;
+            color: white;
+        }
     </style>
 </head>
 <body>
     <div class="content">
-        <h1>Hello, my name is Alvaro Gamundi</h1> <!-- Título más grande -->
-        <p>Welcome to my portfolio! In this space, I showcase the cases I've worked on, focusing on the creation of Machine Learning models and Data Analysis projects. Explore my projects to learn more about my approach and skills.</p> <!-- Párrafo más grande -->
+        <h1>Hello, my name is Alvaro Gamundi</h1> <!-- Título grande -->
+        <p>Welcome to my portfolio! In this space, I showcase the cases I've worked on, focusing on the creation of Machine Learning models and Data Analysis projects. Explore my projects to learn more about my approach and skills.</p>
 
-        <h2>BANK LOAN RISK SCORE ANALYZER</h2> <!-- Título antes del enlace -->
+        <h2>BANK LOAN RISK SCORE ANALYZER</h2> <!-- Título de sección -->
+        
+        <!-- Proyectos en columnas -->
+        <div class="projects">
+            <!-- Columna 1: BANK LOAN RISK SCORE ANALYZER -->
+            <div class="project-column">
+                <h3>BANK LOAN RISK SCORE ANALYZER</h3>
+                <a href="https://appriskscoring-ehuke5ze63jgdfmnspqoqx.streamlit.app/" target="_blank" class="button">
+                    Click here to access the app
+                </a>
+            </div>
 
-        <a href="https://appriskscoring-ehuke5ze63jgdfmnspqoqx.streamlit.app/" target="_blank" class="button">
-            Click here to access the app
-        </a> <!-- Enlace con botón rectangular -->
+            <!-- Columna 2: EMPLOYEE RETENTION ANALYZER -->
+            <div class="project-column">
+                <h3>EMPLOYEE RETENTION ANALYZER</h3>
+                <a href="https://employee-retention-analyzer-3djcxzp58ahwzwajrmjhy6.streamlit.app/" target="_blank" class="button">
+                    Click here to access the app
+                </a>
+            </div>
+        </div>
     </div>
 </body>
 </html>
