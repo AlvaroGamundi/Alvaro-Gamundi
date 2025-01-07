@@ -66,23 +66,24 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para un efecto profesional */
         }
 
-        /* Botones */
-        .button {
-            background-color: #B0B0B0;
-            padding: 10px 20px;
+        /* Estilo para los títulos como botones */
+        .project-column a {
+            font-size: 2rem; /* Tamaño del texto del hipervínculo */
+            font-weight: bold;
             color: black;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: 600;
+            text-decoration: none; /* Eliminar subrayado */
             display: inline-block;
-            border: none;
-            width: auto;
-            border-radius: 5px;
-            text-align: center;
+            padding: 10px 15px;
+            border: 2px solid transparent; /* Borde inicial transparente */
+            border-radius: 5px; /* Bordes redondeados */
+            transition: all 0.3s ease; /* Suaviza las transiciones */
         }
 
-        .button:hover {
-            background-color: #888888;
+        .project-column a:hover {
+            background-color: #4CAF50; /* Fondo verde al pasar el cursor */
+            color: white; /* Cambiar el color del texto a blanco */
+            border: 2px solid #4CAF50; /* Añadir borde verde */
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para resaltar */
         }
     </style>
 </head>
@@ -96,18 +97,16 @@
             <!-- Columna 1: BANK LOAN RISK SCORE ANALYZER -->
             <div class="project-column">
                 <img src="risk_score.jpg" alt="Bank Loan Risk Project">
-                <h3>BANK LOAN RISK SCORE ANALYZER</h3>
-                <a href="https://appriskscoring-ehuke5ze63jgdfmnspqoqx.streamlit.app/" target="_blank" class="button">
-                    Click here to access the app
+                <a href="https://appriskscoring-ehuke5ze63jgdfmnspqoqx.streamlit.app/" target="_blank">
+                    BANK LOAN RISK SCORE ANALYZER
                 </a>
             </div>
 
             <!-- Columna 2: EMPLOYEE RETENTION ANALYZER -->
             <div class="project-column">
                 <img src="imagen_abandono.jpg" alt="Employee Retention Project">
-                <h3>EMPLOYEE RETENTION ANALYZER</h3>
-                <a href="https://employee-retention-analyzer-3djcxzp58ahwzwajrmjhy6.streamlit.app/" target="_blank" class="button">
-                    Click here to access the app
+                <a href="https://employee-retention-analyzer-3djcxzp58ahwzwajrmjhy6.streamlit.app/" target="_blank">
+                    EMPLOYEE RETENTION ANALYZER
                 </a>
             </div>
         </div>
@@ -128,3 +127,4 @@
     </script>
 </body>
 </html>
+
