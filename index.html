@@ -6,13 +6,22 @@
     <title>Alvaro Gamundi - Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Cambiar el fondo de la página a gris claro */
+        /* Cambiar el fondo de la página a gris claro y añadir un borde al contenido */
         body {
-            background-color: #f1f1f1; /* Gris claro */
+            background-color: #f4f4f9; /* Fondo gris más profesional */
             color: black; /* Cambiar color del texto a negro */
             font-family: 'Roboto', sans-serif; /* Fuente Roboto */
             margin: 0;
             padding: 0;
+        }
+
+        /* Contenedor general con borde y fondo */
+        .content {
+            padding: 50px 20px;
+            border: 2px solid #ccc; /* Borde alrededor del contenido */
+            border-radius: 10px; /* Bordes redondeados */
+            background-color: white; /* Fondo blanco para el contenido */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
         }
 
         /* Encabezados */
@@ -22,11 +31,6 @@
             color: black;
             font-weight: 700;
             font-size: 4rem;
-        }
-
-        /* Contenedor general */
-        .content {
-            padding: 50px 20px;
         }
 
         /* Efecto máquina de escribir */
@@ -136,7 +140,7 @@
                     BANK LOAN RISK SCORE ANALYZER
                 </a>
                 <!-- Botón More Info y cuadro oculto -->
-                <a href="javascript:void(0);" class="more-info-btn" onclick="toggleMoreInfo(1)">More Info</a>
+                <a href="javascript:void(0);" class="more-info-btn" id="btn-more-info-1" onclick="toggleMoreInfo(1)">More Info</a>
                 <div class="more-info-content" id="more-info-1">
                     Hola mundo
                 </div>
@@ -149,7 +153,7 @@
                     EMPLOYEE RETENTION ANALYZER
                 </a>
                 <!-- Botón More Info y cuadro oculto -->
-                <a href="javascript:void(0);" class="more-info-btn" onclick="toggleMoreInfo(2)">More Info</a>
+                <a href="javascript:void(0);" class="more-info-btn" id="btn-more-info-2" onclick="toggleMoreInfo(2)">More Info</a>
                 <div class="more-info-content" id="more-info-2">
                     Hola mundo
                 </div>
@@ -171,18 +175,23 @@
         }
         type();
 
-        // Función para mostrar/ocultar la información adicional
+        // Función para mostrar/ocultar la información adicional y cambiar el texto del botón
         function toggleMoreInfo(id) {
             const content = document.getElementById(`more-info-${id}`);
+            const button = document.getElementById(`btn-more-info-${id}`);
+            
             if (content.style.display === "block") {
                 content.style.display = "none";
+                button.textContent = "More Info"; // Cambiar el texto del botón a "More Info"
             } else {
                 content.style.display = "block";
+                button.textContent = "Less Info"; // Cambiar el texto del botón a "Less Info"
             }
         }
     </script>
 </body>
 </html>
+
 
 
 
