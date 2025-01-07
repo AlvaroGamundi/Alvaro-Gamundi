@@ -24,16 +24,21 @@
             font-size: 4rem; /* Doble de tamaño (ajustado a 4rem) */
         }
 
-        /* Estilo para el texto debajo de h1 */
+        /* Estilo para los párrafos */
         p {
             text-align: left; /* Alineación a la izquierda */
             padding: 10px 20px; /* Asegura espacio alrededor del texto */
             color: black; /* Asegura que el texto sea visible */
             font-weight: 400;
             font-size: 1.6rem; /* Texto más pequeño */
-            animation: typing 4s steps(40) 1s 1 normal both; /* Animación tipo máquina de escribir */
             white-space: nowrap; /* Evita que el texto se divida en varias líneas */
             overflow: hidden; /* Esconde el texto mientras se está escribiendo */
+        }
+
+        /* Animación tipo máquina de escribir */
+        .typing {
+            display: inline-block; /* Para mantener el texto en línea */
+            animation: typing 4s steps(40) 1s 1 normal both; /* Efecto de escritura */
         }
 
         /* Efecto máquina de escribir */
@@ -105,8 +110,12 @@
 </head>
 <body>
     <div class="content">
-        <h1>Hello, my name is Alvaro Gamundi</h1> <!-- Título grande -->
-        <p>Welcome to my portfolio! In this space, I showcase the cases I've worked on, focusing on the creation of Machine Learning models and Data Analysis projects. Explore my projects to learn more about my approach and skills.</p>
+        <h1><span class="typing">Hello, my name is Alvaro Gamundi</span></h1> <!-- Título con efecto -->
+        
+        <!-- Párrafos con efecto de máquina de escribir -->
+        <p><span class="typing">Welcome to my portfolio! In this space, I showcase the cases I've worked on, focusing on the creation of Machine Learning models and Data Analysis projects.</span></p>
+        
+        <p><span class="typing">Explore my projects to learn more about my approach and skills.</span></p>
 
         <!-- Proyectos en columnas -->
         <div class="projects">
