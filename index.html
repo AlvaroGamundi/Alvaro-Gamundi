@@ -52,9 +52,12 @@
         }
 
         .project-column {
-            width: 45%;
+            width: 45%; /* Cada columna ocupa el 45% del ancho */
             margin-bottom: 30px;
             text-align: center; /* Centra el contenido dentro de la columna */
+            display: flex;
+            flex-direction: column; /* Asegura que la imagen y el enlace estén alineados verticalmente */
+            align-items: center; /* Centra horizontalmente el contenido dentro de la columna */
         }
 
         /* Estilo para las imágenes */
@@ -62,7 +65,7 @@
             width: 50%; /* Imagen reducida al 50% del ancho original */
             height: auto; /* Mantiene la proporción de la imagen */
             border-radius: 8px; /* Opcional: Bordes redondeados */
-            margin-bottom: 15px; /* Espacio entre la imagen y el título */
+            margin-bottom: 15px; /* Espacio entre la imagen y el enlace */
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para un efecto profesional */
         }
 
@@ -127,5 +130,6 @@
     </script>
 </body>
 </html>
+
 
 
