@@ -65,6 +65,8 @@
             font-weight: 600;
             display: inline-block; /* Asegura que el botón se muestre correctamente */
             border: none;
+            width: 100%; /* Hace que el botón ocupe el ancho completo de la caja */
+            box-sizing: border-box; /* Hace que el padding no afecte el tamaño del ancho */
         }
 
         .button:hover {
@@ -85,8 +87,10 @@
 
         /* Títulos dentro de las columnas */
         .project-column h3 {
-            text-align: center;
+            text-align: left; /* Alineado a la izquierda */
             color: white;
+            font-size: 2rem; /* Tamaño más grande del título */
+            margin-bottom: 15px; /* Espacio entre el título y el enlace */
         }
     </style>
 </head>
@@ -95,8 +99,6 @@
         <h1>Hello, my name is Alvaro Gamundi</h1> <!-- Título grande -->
         <p>Welcome to my portfolio! In this space, I showcase the cases I've worked on, focusing on the creation of Machine Learning models and Data Analysis projects. Explore my projects to learn more about my approach and skills.</p>
 
-        <h2>BANK LOAN RISK SCORE ANALYZER</h2> <!-- Título de sección -->
-        
         <!-- Proyectos en columnas -->
         <div class="projects">
             <!-- Columna 1: BANK LOAN RISK SCORE ANALYZER -->
