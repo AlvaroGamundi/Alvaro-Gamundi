@@ -123,46 +123,38 @@
         const typingContainer = document.getElementById("typing-text");
 
         let index = 0;
-        let lineIndex = 0; // Tracking which line the text is on
+        let lineIndex = 0;
         let typingSpeed = 50;
 
         function type() {
             if (index < typingText.length) {
-                // Agregar texto por carácter
                 typingContainer.textContent += typingText[index];
 
-                // Asegúrate de que el cursor esté al final de la línea actual
-                adjustCursor();
-
-                // Si llegamos a un salto de línea, movemos al siguiente "renglón"
-                if (typingText[index] === ' ' && lineIndex < 1) {
-                    lineIndex++; // Cambio de línea
+                // Control del salto de línea
+                if (typingText[index] === ' ' && typingContainer.scrollHeight > typingContainer.clientHeight) {
                     typingContainer.textContent += '\n'; // Salto de línea
                 }
-                
+
+                // Si el texto llega al final de la línea, lo mueve a la siguiente
                 index++;
                 setTimeout(type, typingSpeed);
             }
         }
 
-        function adjustCursor() {
-            // El cursor debe seguir al final del texto en la línea actual
-            const cursor = document.querySelector('.cursor');
-            if (!cursor) {
-                const newCursor = document.createElement('span');
-                newCursor.classList.add('cursor');
-                typingContainer.appendChild(newCursor);
-            }
-
-            // Posicionar el cursor correctamente al final
-            const lastText = typingContainer.textContent;
-            typingContainer.scrollTop = typingContainer.scrollHeight;
+        // Crear cursor parpadeante
+        function createCursor() {
+            const cursor = document.createElement('span');
+            cursor.classList.add('cursor');
+            typingContainer.appendChild(cursor);
         }
 
+        // Iniciar la escritura
+        createCursor();
         type();
     </script>
 </body>
 </html>
+
 
 
 
