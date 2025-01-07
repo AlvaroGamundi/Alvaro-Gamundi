@@ -40,12 +40,11 @@
         /* Cursor animado */
         .cursor {
             position: absolute;
-            right: 0;
-            top: 0;
             width: 2px;
             height: 1.2em;
             background-color: black;
             animation: blink 0.7s step-end infinite alternate;
+            right: 0;
         }
 
         @keyframes blink {
@@ -137,22 +136,24 @@
             }
         }
 
-        // Actualizar la posición del cursor
+        // Función para actualizar la posición del cursor
         function updateCursorPosition() {
-            const lines = typingContainer.innerText.split('\n');
+            const currentText = typingContainer.textContent;
+            const lines = currentText.split('\n');
             const lastLine = lines[lines.length - 1];
-            const width = lastLine.length * 16; // Estimar el ancho de la última línea, ajusta el multiplicador si es necesario
+            const width = lastLine.length * 16; // Estimación del ancho
             cursor.style.left = width + 'px';
         }
 
-        // Iniciar el proceso
+        // Iniciar el proceso de escritura
         type();
 
-        // Actualizar la posición del cursor a medida que el texto se escribe
+        // Actualizar la posición del cursor a medida que se escribe
         setInterval(updateCursorPosition, 50);
     </script>
 </body>
 </html>
+
 
 
 
