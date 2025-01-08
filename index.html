@@ -139,7 +139,20 @@
                 <a href="javascript:void(0);" class="more-info-btn" id="more-info-btn-1" onclick="toggleMoreInfo(1)">More Info</a>
                 <div class="more-info-content" id="more-info-1">
                     <h3>Project Description:</h3>
-                    <p>This project is based on a dataset from a U.S. bank...</p>
+                    <p>This project is based on a dataset from a U.S. bank, in which three Machine Learning models are developed to calculate the expected loss in the context of banking risk. The models accurately predict the financial impact of potential defaults, helping the institution better manage its risks and make informed decisions.</p>
+
+                    <h3>Technical Details:</h3>
+                    <ul>
+                        <li><strong>Logistic Regression:</strong> An essential model in the banking world due to its high explainability and widespread use in risk analysis. This model allows easy interpretation of results, which is crucial in the regulated banking environment.</li>
+                        <li><strong>LightGBM:</strong> Two algorithms based on this powerful framework were used, maximizing predictive accuracy and being ideal for working with large volumes of data. LightGBM is particularly effective in risk prediction and optimizing models with complex and imbalanced data.</li>
+                    </ul>
+
+                    <h3>Challenge:</h3>
+                    <ul>
+                        <li><strong>Data Cleaning:</strong> Addressing data quality issues, ensuring consistency, and handling missing or corrupted data to ensure that the models are trained on reliable data.</li>
+                        <li><strong>Exploratory Data Analysis (EDA):</strong> Analyzing the dataset to understand the underlying patterns, distributions, and relationships between features, which helped in selecting the right models and preprocessing techniques.</li>
+                        <li><strong>Integration and Deployment:</strong> Integrating the three models into a production environment and setting up pipelines for automated data processing and model deployment.</li>
+                    </ul>
                 </div>
             </div>
             <!-- Columna 2 -->
@@ -149,14 +162,28 @@
                 <a href="javascript:void(0);" class="more-info-btn" id="more-info-btn-2" onclick="toggleMoreInfo(2)">More Info</a>
                 <div class="more-info-content" id="more-info-2">
                     <h3>Project Description:</h3>
-                    <p>This project leverages a dataset of employees from a Spanish company...</p>
+                    <p>This project leverages a dataset of employees from a Spanish company to develop an application powered by a Machine Learning model. Its purpose is to predict the probability of an employee leaving, enabling the company to take preventive measures and reduce the economic losses associated with employee turnover.</p>
+
+                    <h3>Technical Details:</h3>
+                    <ul>
+                        <li>The project addresses a supervised Machine Learning classification problem.</li>
+                        <li>Grid Search was used to compare multiple algorithms with different hyperparameter configurations.</li>
+                        <li>The best-performing model was a Random Forest, achieving an AUC metric of 79%, standing out for its predictive capability.</li>
+                    </ul>
+
+                    <h3>Challenge:</h3>
+                    <ul>
+                        <li><strong>Data Cleaning:</strong> Addressing data quality issues, ensuring consistency, and handling missing or corrupted data to ensure the models are trained on reliable data.</li>
+                        <li><strong>Exploratory Data Analysis (EDA):</strong> Analyzing the dataset to understand the underlying patterns, distributions, and relationships between features, which helped in selecting the right models and preprocessing techniques.</li>
+                        <li><strong>Integration and Deployment:</strong> Integrating the model into a production environment and setting up pipelines for automated data processing and model deployment.</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        const text = "In this space, I showcase the cases I've worked on..."; 
+        const text = "In this space, I showcase the cases I've worked on, applying Data Science, Machine Learning, and AI solutions."; 
         let index = 0;
 
         function typeWriter() {
@@ -183,3 +210,4 @@
     </script>
 </body>
 </html>
+
