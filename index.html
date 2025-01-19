@@ -6,16 +6,14 @@
     <title>Alvaro Gamundi - Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Cambiar el fondo de la página a gris claro */
         body {
-            background-color: #f1f1f1; /* Gris claro */
-            color: black; /* Cambiar color del texto a negro */
-            font-family: 'Roboto', sans-serif; /* Fuente Roboto */
+            background-color: #f1f1f1;
+            color: black;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
         }
 
-        /* Encabezados */
         h1 {
             text-align: left;
             padding: 20px;
@@ -24,15 +22,13 @@
             font-size: 4rem;
         }
 
-        /* Contenedor general */
         .content {
             padding: 50px 20px;
         }
 
-        /* Efecto máquina de escribir */
         .typing-container {
             display: inline-block;
-            border-right: 2px solid black; /* Cursor visible para todo el texto */
+            border-right: 2px solid black;
             white-space: pre-wrap;
             overflow: hidden;
             font-size: 2rem;
@@ -44,58 +40,51 @@
             to { border-right-color: transparent; }
         }
 
-        /* Estilo de las columnas */
         .projects {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 80px; /* Incrementar margen superior para mayor separación */
-            align-items: stretch; /* Asegura que las columnas tengan la misma altura */
+            margin-top: 80px;
         }
 
         .project-column {
-            width: 45%; /* Cada columna ocupa el 45% del ancho */
-            margin-bottom: 30px;
-            text-align: center; /* Centra el contenido dentro de la columna */
+            width: 100%;
+            margin-bottom: 100px; /* Más espacio entre proyectos */
+            text-align: center;
             display: flex;
-            flex-direction: column; /* Asegura que la imagen y el enlace estén alineados verticalmente */
-            align-items: center; /* Centra horizontalmente el contenido dentro de la columna */
+            flex-direction: column;
+            align-items: center;
         }
 
-        /* Estilo para las imágenes */
         .project-column img {
-            width: 50%; /* Imagen reducida al 50% del ancho original */
-            height: 300px; /* Establecer la altura de las imágenes para que tengan la misma altura */
-            object-fit: cover; /* Asegura que la imagen cubra el espacio sin distorsionarse */
-            border-radius: 8px; /* Opcional: Bordes redondeados */
-            margin-bottom: 15px; /* Espacio entre la imagen y el enlace */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para un efecto profesional */
+            width: 50%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        /* Estilo para los títulos como botones */
         .project-column a {
-            font-size: 1.5rem; /* Texto más pequeño */
+            font-size: 1.5rem;
             font-weight: bold;
             color: black;
-            text-decoration: none; /* Eliminar subrayado */
+            text-decoration: none;
             display: inline-block;
-            padding: 8px 12px; /* Reducir el tamaño del botón */
-            border: 2px solid transparent; /* Borde inicial transparente */
-            border-radius: 5px; /* Bordes redondeados */
-            transition: all 0.3s ease; /* Suaviza las transiciones */
+            padding: 8px 12px;
+            border: 2px solid transparent;
+            border-radius: 5px;
+            transition: all 0.3s ease;
         }
 
         .project-column a:hover {
-            background-color: #d6d6d6; /* Fondo gris claro al pasar el cursor */
-            color: black; /* Mantener el texto en negro */
-            border: 2px solid #c0c0c0; /* Borde gris claro */
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para resaltar */
+            background-color: #d6d6d6;
+            color: black;
+            border: 2px solid #c0c0c0;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        /* Estilo del botón 'More Info' */
         .more-info-btn {
             font-size: 1.2rem;
             font-weight: normal;
-            color: #007BFF; /* Color azul para el texto */
+            color: #007BFF;
             text-decoration: none;
             padding: 10px;
             border: 2px solid #007BFF;
@@ -111,7 +100,6 @@
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        /* Estilo del cuadro de información oculto */
         .more-info-content {
             display: none;
             margin-top: 10px;
@@ -121,7 +109,33 @@
             border-radius: 5px;
             font-size: 1rem;
             color: #333;
-            text-align: justify; /* Justifica el texto dentro del cuadro */
+            text-align: left;
+            width: 90%; /* Más ancho: 90% del ancho de la página */
+            max-width: 1200px; /* Ancho máximo */
+        }
+
+        .more-info-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+	.toggle-section {
+    		cursor: pointer;
+    		font-weight: bold;
+    		color: #333;
+    		padding: 5px 0;
+    		font-size: 1.3rem; /* Larger font size for the headings */
+        }
+
+        .toggle-section:hover {
+            color: #007BFF;
+        }
+
+        .nested-content {
+    		margin-left: 20px;
+		margin-right: 40px;
+    		display: none;
+    		text-align: justify;  /* Añadido: justifica el texto */
         }
     </style>
 </head>
@@ -130,32 +144,308 @@
         <h1>Hello, welcome to my portfolio!</h1>
         <div class="typing-container" id="typing-text"></div>
 
-        <!-- Proyectos en columnas -->
         <div class="projects">
-            <!-- Columna 1 -->
             <div class="project-column">
                 <img src="risk_score.jpg" alt="Bank Loan Risk Project">
                 <a href="https://appriskscoring-ehuke5ze63jgdfmnspqoqx.streamlit.app/" target="_blank">BANK LOAN RISK SCORE ANALYZER</a>
                 <a href="javascript:void(0);" class="more-info-btn" id="more-info-btn-1" onclick="toggleMoreInfo(1)">More Info</a>
                 <div class="more-info-content" id="more-info-1">
-                    <h3>Project Description:</h3>
-                    <p>This project is based on a dataset from a U.S. bank, in which three Machine Learning models are developed to calculate the expected loss in the context of banking risk. The models accurately predict the financial impact of potential defaults, helping the institution better manage its risks and make informed decisions.</p>
-
-                    <h3>Technical Details:</h3>
+                    <h3>Table of Contents:</h3>
                     <ul>
-                        <li><strong>Logistic Regression:</strong> An essential model in the banking world due to its high explainability and widespread use in risk analysis. This model allows easy interpretation of results, which is crucial in the regulated banking environment.</li>
-                        <li><strong>LightGBM:</strong> Two algorithms based on this powerful framework were used, maximizing predictive accuracy and being ideal for working with large volumes of data. LightGBM is particularly effective in risk prediction and optimizing models with complex and imbalanced data.</li>
-                    </ul>
+			<li class="toggle-section" onclick="toggleNested(1, 1)">1. Introduction</li>
+			<div class="nested-content" id="nested-1-1">    				
+				<p>The client is an online platform specializing in offering various types of <strong>loans</strong> to <strong>urban customers</strong>. This platform enables borrowers to easily and quickly access loans with <strong>competitive interest rates</strong> through a <strong>user-friendly interface</strong>.</p>
+				<p>When a loan application is received, the company evaluates the applicant's profile to decide whether to approve the loan. Similar to other lending companies, loans granted to <strong>"high-risk"</strong> customers are the primary source of <strong>financial losses</strong>. Therefore, the company aims to identify these <strong>high-risk borrowers</strong> and the potential losses associated with their loans to improve <strong>capital management</strong>, optimize its <strong>loan portfolio</strong>, and enhance its <strong>risk assessment process</strong>.</p>
+    			</div>
 
-                    <h3>Challenge:</h3>
-                    <ul>
-                        <li><strong>Data Cleaning:</strong> Addressing data quality issues, ensuring consistency, and handling missing or corrupted data to ensure that the models are trained on reliable data.</li>
-                        <li><strong>Exploratory Data Analysis (EDA):</strong> Analyzing the dataset to understand the underlying patterns, distributions, and relationships between features, which helped in selecting the right models and preprocessing techniques.</li>
-                        <li><strong>Integration and Deployment:</strong> Integrating the three models into a production environment and setting up pipelines for automated data processing and model deployment.</li>
+			<li class="toggle-section" onclick="toggleNested(2, 2)">2. Objectives</li>
+			<div class="nested-content" id="nested-2-2">
+    				<p>Development of an <strong>advanced analytical tool</strong> that uses predictive machine learning models to estimate the <strong>expected financial loss</strong> of each new <strong>client-loan relationship</strong>.</p>
+    			</div>
+
+			<li class="toggle-section" onclick="toggleNested(2, 3)">3. Understanding the Problem</li>
+			<div class="nested-content" id="nested-2-3">
+    				<p><strong>Credit risk</strong> refers to the possibility that a client will fail to meet their contractual obligations, such as <strong>mortgages</strong>, <strong>credit card debts</strong>, and other types of loans.</p>
+
+    				<p>Minimizing the risk of <strong>default</strong> is one of the primary concerns of financial institutions. For this reason, <strong>commercial banks</strong>, <strong>investment banks</strong>, <strong>venture capital funds</strong>, <strong>asset management companies</strong>, and <strong>insurance companies</strong> are increasingly relying on technology to predict which clients are more likely to default on their debts.</p>
+
+    				<p>The management of credit risk across a portfolio of financial instruments must account for the likelihood of future deterioration and is commonly measured through <strong>expected loss</strong> and <strong>lifetime expected credit loss</strong>. To comply with <strong>IFRS 9</strong> or <strong>CECL</strong>, risk managers must calculate the expected credit loss over the life of the portfolio of financial instruments.</p>
+
+    				<p><strong>Machine Learning models</strong> have helped these organizations improve the accuracy of their <strong>credit risk analysis</strong>, providing a scientific method to identify potential defaulters in advance.</p>
+			</div>
+
+                      	<li class="toggle-section" onclick="toggleNested(2, 4)">4. Project design</li>
+			<div class="nested-content" id="nested-2-4">
+				<p><strong><u>METHODOLOGY</u></strong></p> 
+    				<p>To estimate the expected loss (EL) associated with a specific loan application, three key risk parameters are considered:</p>
+    				<ol>
+        				<li><strong>Probability of Default (PD)</strong>: This represents an internal credit rating assigned to each client, which helps estimate the likelihood of the client defaulting on their obligations.</li>
+        				<li><strong>Loss Given Default (LGD)</strong>: A critical metric in risk analysis, it indicates the percentage of exposure that is not expected to be recovered in the event of a default.</li>
+        				<li><strong>Exposure at Default (EAD)</strong>: This refers to the percentage of the outstanding debt at the time of default.</li>
+    				</ol>
+    				<p>To estimate the expected loss for each loan transaction, three predictive machine learning models will be developed to estimate these parameters, and their predictions will be combined to calculate the expected loss for each loan.</p>
+				<!-- Image added here -->
+				<div style="text-align: center;">
+    					<img src="imagen1.png" alt="Project Design Image" style="width: 40%; height: auto; aspect-ratio: 11.5 / 1;">
+				</div>
+
+				<p>Where P is the loan principal (the amount of money the borrower wishes to apply for).</p>
+
+    				<!-- Second image added -->
+    				<div style="text-align: center;">
+        				<img src="Imagen2.png" alt="Second Project Design Image" style="width: 80%; height: auto; aspect-ratio: 15.5 / 9;">
+    				</div>
+				
+				<p>The model designed to estimate the <strong>probability of default</strong> will utilize a <strong>logistic regression algorithm</strong>. In the context of regulated financial services, "black-box" algorithms are not ideal because their lack of transparency and auditability could introduce macroeconomic risks. Additionally, legal requirements may mandate a certain level of <strong>explainability</strong>. To mitigate these concerns, a transparent AI model, such as logistic regression, will be employed, as it provides clear, understandable reasoning for its decision-making process.</p>
+
+				<p>For the estimation of <strong>exposure at default</strong> and <strong>loss given default</strong>, various combinations of algorithms (including Ridge, Lasso, LightGBM, and others) and their corresponding hyperparameters were evaluated to identify the most effective approach. Ultimately, the <strong>LightGBM algorithm</strong> was selected for both tasks, based on its exceptional performance.</p>
+			<p><strong><u>ENTITIES AND DATA</u></strong></p>
+			<p>The analyzed data contains information collected by a american company about two main entities:</p>
+
+			<p><strong>Borrowers:</strong> The dataset includes features that capture details about the applicant's profile, such as their employment history, the number of mortgages and credit lines, annual income, and other personal information.</p>
+
+			<p><strong>Loans:</strong> The remaining features provide information about the loan, such as the loan amount, interest rate, loan status (whether the loan is current or delinquent), loan term (either 36 or 60 months), among others.</p>
+			
+
+
+			</div>
+
+			<li class="toggle-section" onclick="toggleNested(2, 5)">5. Data quality</li>
+                        <div class="nested-content" id="nested-2-5">
+				<p>In this stage of the project, general data quality correction processes have been applied, such as:</p>
+    				<ul>
+        				<li>Correction of names</li>
+        				<li>Elimination of variables with unique values</li>
+        				<li>Removal of duplicates</li>
+        				<li>Imputation of null values</li>
+        				<li>Correction of outliers</li>
+    				</ul>
+			<br>
+			</div>
+			
+			<li class="toggle-section" onclick="toggleNested(2, 6)">6. Exploratory data analysis</li>
+                        <div class="nested-content" id="nested-2-6">
+				<p>The purpose of this phase of the project is to identify <strong>trends</strong>, <strong>patterns</strong>, and validate <strong>hypotheses</strong> through statistical summaries and graphical visualizations.</p>
+
+				<p>To guide the process, several <strong>key questions</strong> were formulated to serve as the foundation for developing and deepening the analysis of the different variables.</p>
+				<p><strong><u>KEY QUESTIONS</u></strong></p>
+				<p><u>Regarding the borrowers:</u></p>
+				<p><ul>
+        				<li>Question 1: What are the most common professions of the clients requesting loans?</li>
+				</ul></p>
+				<div style="text-align: center;margin-top: 20px;">
+    					<img src="Imagen3.png" alt="Project Design Image" style="width: 80%; height: auto; aspect-ratio: 17.5 / 7.5;">
+				</div>
+				<p>The variable <strong>Employment</strong> is excluded from the analysis because the majority of the data is unknown. This decision stems from the data quality process, where missing values and jobs with a frequency lower than 0.5% were imputed into this "unknown" category.</p>
+
+				<p><ul>
+        				<li>Question 2: How does the score assigned by the bank to the client affect the debt status?</li>
+				</ul></p>
+				<div style="text-align: center;margin-top: 20px;">
+    					<img src="Imagen4.png" alt="Project Design Image" style="width: 80%; height: auto; aspect-ratio: 14.5 / 7.7;">
+				</div>
+				<p>The <strong>rating</strong> made by the bank, where A represents the clients with the best status regarding the risk of default and G represents the worst, proves to be <strong>predictive</strong> when analyzing the average of cases where the debt is marked as unpaid.</p>
+
+				<p><ul>
+        				<li>Question 3: How does the usage percentage, relative to the credit granted on a card, affect the debt status?</li>
+				</ul></p>
+				<div style="text-align: center;margin-top: 20px;">
+    					<img src="Imagen5.png" alt="Project Design Image" style="width: 80%; height: auto; aspect-ratio: 15 / 8;">
+				</div>
+				<div style="text-align: center;margin-top: 20px;">
+    					<img src="Imagen6.png" alt="Project Design Image" style="width: 80%; height: auto; aspect-ratio: 18 / 9;">
+				</div>
+				<p>The <strong>credit card usage percentage</strong> variable proves to be <strong>predictive</strong>, as a higher volume of defaults is observed in clients who have a higher usage percentage. Additionally, three groups can be identified: those who do not use any of the available credit, those who use all the credit, and those who are in a medium usage percentage.</p>
+				<p>When analyzing the <strong>default rate</strong> for the profile of clients with 0% usage, it stands at <strong>8.9%</strong>, increasing to <strong>14.6%</strong> for clients with 100% usage. Therefore, the existence of such differentiated groups in terms of usage characteristics and default rate makes this variable a potentially very useful predictor.</p>
+				<br>
+				<p><u>Regarding the Loans:</u></p>
+				<p><ul>
+        				<li>Question 4: Does the repayment term of the debt affect the client's default rate?</li>
+				</ul></p>
+				<div style="text-align: center;margin-top: 20px;">
+    					<img src="imagen7.png" alt="Project Design Image" style="width: 80%; height: auto; aspect-ratio: 17 / 8;">
+				</div>
+				<p>From the exploratory data analysis (EDA), it can be concluded that, in general terms, clients who take longer <strong>(60 months)</strong> to repay their debt have an average of <strong>6 more points</strong> in their <strong>default rate</strong>.</p>
+
+				<p><ul>
+        				<li>Question 5: Does the loan purpose affect the client's default rate?</li>
+				</ul></p>
+				<div style="text-align: center;margin-top: 20px;">
+    					<img src="imagen8.png" alt="Project Design Image" style="width: 80%; height: auto; aspect-ratio: 18 / 8;">
+				</div>
+				<div style="text-align: center;margin-top: 20px;">
+    					<img src="imagen9.png" alt="Project Design Image" style="width: 80%; height: auto; aspect-ratio: 18 / 8;">
+				</div>
+				<p>At first glance, <strong>three groups</strong> can be distinguished regarding the relationship between the loan purpose and the average default rate. On one hand, we have those with a default rate <strong>above 12.5%</strong>, those <strong>between 10% and 12.5%</strong>, and those with a default rate <strong>below 10%</strong>.</p>
+				<p>However, when focusing on the frequency within our dataframe, we observe that many categories <strong>lack a sufficient statistical base</strong> to extract reliable patterns. Therefore, a good strategy to retain this information is to group them into the "Other" category.</p>
+				<p>Since the "Other" category is in a middle range regarding the default rate, the categories assigned to it, both above and below, will not significantly alter its value.</p>
+				<p>Thus, the resulting categories will be: <strong>"Debt Consolidation", "Credit Card" ,"Home Improvement" and "Other."</strong></p>
+
+
+
+	
+
+			</div>
+			<li class="toggle-section" onclick="toggleNested(2, 7)">7. Feature transformation</li>
+                        <div class="nested-content" id="nested-2-7">
+			<p>In this stage of the project, various feature transformation techniques will be applied to adapt the data to the specific requirements of the algorithms that will be used during the modeling phase.</p>
+			<p>For all three models, categorical variables need to be converted into numerical variables. This process will be carried out using <strong>One-Hot Encoding (OHE)</strong> and <strong>Ordinal Encoding (OE)</strong> techniques. Additionally, a <strong>Binarizer</strong> and a <strong>MinMaxScaler</strong> will be applied, as the logistic regression algorithm is particularly sensitive to differences in variable scales. These transformations ensure that all variables are normalized and ready for analysis.</p>
+				
+	
+			<p><strong><u>CREATING TARGETS</u></strong></p>
+			<p>After transforming the variables, it is necessary to create the target variables that will later be used to train the models. The following sections outline the process for each model in detail.</p>
+			<p><u>Probability of default (PD):</u></p>
+			<p>The purpose of this model is to predict the probability that a given client will default on their loan. To achieve this, the variable "Status" is analyzed, with the primary criterion being that a delay of more than 90 days is classified as a default.</p>
+			<p>Below, the frequency distribution of the original "Status" variable is presented.</p>
+			<div style="text-align: center;margin-top: 20px;">
+    					<img src="imagen10.png" alt="Project Design Image" style="width: 80%; height: auto; aspect-ratio: 18.2 / 7;">
+				</div>
+			<p>During the Exploratory Data Analysis (EDA), it was observed that in certain statuses, the bank had recovered part of the capital, indicating that a default had occurred. Based on this analysis, the statuses that indicate default are: <strong>'Charged Off'</strong>, <strong>'Does not meet the credit policy. Status: Charged Off'</strong>, and <strong>'Default'</strong>.</p>
+			<p>On the other hand, the statuses that do not indicate default are: <strong>'Current'</strong>, <strong>'Late (31-120 days)'</strong>, <strong>'Late (16-30 days)'</strong>, <strong>'In Grace Period'</strong>, and <strong>'Does not meet the credit policy. Status: Fully Paid'</strong>.</p>
+			
+			<div style="text-align: center;margin-top: 20px;">
+    					<img src="imagen11.png" alt="Project Design Image" style="width: 80%; height: auto; aspect-ratio: 15 / 7.6;">
+				</div>
+			<p>Finally, the </strong>Target PD</strong> variable is defined as a </strong>binary variable (0-1)</strong>, where 0 represents the cases where no default occurs, and 1 represents the cases where a default does happen.</p>
+
+			<p><u>Loss given default (LGD):</u></p>
+			<p>The objective of this model is to predict the percentage of the loan that a given borrower has not yet repaid when a default occurs. The target for this model can thus be defined as:</p>
+			<div style="text-align: center;margin-top: 20px;">
+    					<img src="imagen12.png" alt="Project Design Image" style="width: 40%; height: auto; aspect-ratio: 11,3 / 1.8;">
+				</div>
+			<p><u>Exposure at default (EAD):</u></p>
+			<p>The objective of this model is to predict the percentage of the principal that will not be possible to recover from a loan that has been defaulted on. Therefore, the target for this model will be defined as:</p>
+			<div style="text-align: center;margin-top: 20px;">
+    					<img src="imagen13.png" alt="Project Design Image" style="width: 40%; height: auto; aspect-ratio: 6.3 / 1.8;">
+				</div>
+
+			</div>
+
+
+
+
+			<li class="toggle-section" onclick="toggleNested(2, 8)">8. Modelling</li>
+                        <div class="nested-content" id="nested-2-8">
+			<p>At this stage of the project, the primary focus is on the selection and <strong>optimization of predictive models</strong>, along with the search for the best combination of hyperparameters. The goal is to <strong>maximize evaluation metrics</strong> that reflect high predictive power, thereby ensuring robust performance of the selected algorithms.</p>
+			<p><strong><u>Probability of default model (PD)</u></strong></p>
+			<p>As previously explained, a logistic regression algorithm was chosen for the probability of default (PD) model. This type of model is particularly sensitive to correlations between variables. Therefore, a correlation analysis was conducted, and the results are presented below.</p>
+			<div style="text-align: center;margin-top: 20px;">
+    					<img src="Imagen14.png" alt="Project Design Image" style="width: 40%; height: auto; aspect-ratio: 6.5 / 8.2;">
+				</div>
+			<p>In this analysis, a strong correlation was identified between the variables <strong>tipo_interes</strong> and <strong>rating</strong>, as well as between <strong>importe_cuota</strong> and <strong>principal</strong>. These four variables stand out as the ones with the strongest correlations within the dataset. On the other hand, most of the other correlations detected originate from One-Hot Encoding (OHE) processes. At first glance, it does not seem advisable to remove these OHE-derived variables, as doing so would result in the loss of part of the information contained in the original variables from which they are derived.</p>
+
+			<p>The following analysis focuses exclusively on evaluating the four variables with the highest correlation (<strong>tipo_interes</strong>, <strong>rating</strong>, <strong>importe_cuota</strong>, and <strong>principal</strong>) and determining whether their removal could improve the model's performance. To achieve this, the importance of each variable was analyzed in terms of the predictive power they contribute to the model. As shown in the figure below, these correlated variables also exhibit high predictive power. After comparing the model's evaluation metrics both with and without these variables, it is observed that the predictive performance of the model remains consistent. Therefore, the decision is made to <strong>retain these variables</strong> in the model while acknowledging the presence of these correlations.</p>
+			<div style="text-align: center;margin-top: 20px;">
+    					<img src="imagen15.png" alt="Project Design Image" style="width: 80%; height: auto; aspect-ratio: 18.1 / 10.1;">
+			
+				</div>
+			
+			<p>To ensure that the results obtained are robust and not influenced by sample bias, cross-validation was performed. The results confirm that there is no overfitting and that the model is stable.</p>
+			<p>After performing a GridSearch with different hyperparameter combinations, the configuration that showed the best predictive power was: LogisticRegression(C=1, n_jobs=-1, penalty='l1', solver='saga'). This combination highlights the use of L1 regularization (lasso), which helps to implicitly select features by reducing the less relevant coefficients to zero, and the saga solver, which is suitable for large datasets and compatible with L1 regularization. With this configuration, an AUC of 0.7 was achieved.</p>
+			<p>Considering this optimal hyperparameter combination, along with previous tests on the removal of correlated variables, it can be concluded that the information contained in the data defines the limit of the model. Although a model with good predictive capacity was achieved, it does not reach excellent performance.</p>
+			<p>To significantly improve the predictive capacity, it would be necessary to incorporate new variables that provide additional and relevant information to the model, as the current features seem to have reached their maximum explanatory potential.</p>
+			<div style="text-align: center;margin-top: 20px;">
+    					<img src="imagen16.png" alt="Project Design Image" style="width: 80%; height: auto; aspect-ratio: 14.9 / 9.4;">
+			
+				</div>
+			<p><strong><u>Exposure at default model (EAD)</u></strong></p>
+			<p>At this stage, different combinations of algorithms (Ridge, Lasso, LightGBM) and hyperparameters have been tested to identify those with the best performance. It has been found that the <strong>LightGBM</strong> architecture performs the best, achieving a Mean Absolute Error (<strong>MAE</strong>) of <strong>0.23</strong>.</p>
+			<p>In the following image, we can see the correlation between the predicted values and the actual values.</p>
+			<div style="text-align: center;margin-top: 20px;">
+    					<img src="imagen17.png" alt="Project Design Image" style="width: 40%; height: auto; aspect-ratio: 6.1 / 2.8;">
+			
+				</div>
+			<p>As can be seen, the error made by the model in predicting the Exposure at Default (EAD) when default occurs is high. Nevertheless, it should be noted that errors in this type of risk acquisition models are generally significantly higher than those in behavioural models, marketing, customer management, etc., as much less customer information is available when running the model.</p>
+			<p>In the same vein, it should also be noted that both defaulting and non-defaulting borrowers are being modelled, as this information is not available for a new customer. Therefore, on many occasions the model will be trying to predict the exposure at default of borrowers who are unlikely to default, which also explains the level of errors obtained in the modelling.</p>
+			<div style="text-align: center;margin-top: 20px;">
+    					<img src="imagen18.png" alt="Project Design Image" style="width: 80%; height: auto; aspect-ratio: 15.1 / 8.9;">
+			
+				</div>
+
+			<p>It can be seen that in reality (ead_true) three large groups can be distinguished, a majority group of borrowers whose exposure to default is zero, a second group with intermediate exposures (0.25-0.75), and a last group where all those borrowers with greater exposure to default are concentrated.</p>
+			<p>Model’s predictions tend towards intermediate default exposures, which leads to larger errors in predicting those borrowers with very low or very high actual default exposures.</p>
+			<ul>
+  				<li>For customers who will actually have very limited exposures at default, the model predicts that they will have some degree of exposure to default, which will lead to somewhat higher fees/interest being charged than they would be entitled to.</li>
+			</ul>
+			<ul>
+  				<li>For customers with high actual default exposures: the model will tend to predict lower than actual default exposures, so that lower fees/interest will be applied than would be the case.</li>
+			</ul>
+
+			<p>However, at an aggregate level from a business point of view the performance of the model is quite acceptable, as it will be covering the part of fees/interest not collected from borrowers who end up having high exposure defaults with the additional surcharges/interest charged to those customers who eventually did not have defaults, thus covering the aggregate risk of the client portfolio.</p>
+
+
+			<p><strong><u>Loss given default model (LGD)</u></strong></p>
+			<p>Similar to the process carried out in the LGD model, different parameterizations of Ridge, Lasso, and LightGBM algorithms have been tested. Once again, the <strong>LightGBM</strong> architecture provides the best results, achieving a Mean Absolute Error (MAE) of 0.36.</p>
+			<p>The error of this model is relatively high, which is explained for the same reasons exposed previously (as it is also a risk acquisition model with limited features available to make predictions).</p>
+			<div style="text-align: center;margin-top: 20px;">
+    					<img src="imagen19.png" alt="Project Design Image" style="width: 40%; height: auto; aspect-ratio: 10.7 / 5;">
+			
+				</div>
+			<p>It can be seen that in reality (lgd_true) two large groups can be distinguished: a group of loans in which no amount is recovered, either because the borrower has not defaulted or because the borrower has defaulted but the bank has not been able to recover any amount; and a second group of loans in which it has been possible to recover the full amount, either because the borrower has amortised the entire loan or because it has been possible to recover the full amount a defaulted loan.</p>
+			<p>Model’s predictions tend towards intermediate loss levels, which leads to larger errors in predicting fully recovered or lost loans.</p>
+			<div style="text-align: center;margin-top: 20px;">
+    					<img src="imagen20.png" alt="Project Design Image" style="width: 80%; height: auto; aspect-ratio: 15 / 9.2;">
+			
+				</div>
+			<p>However, as presented for LGD model, the performance of the EAD model is acceptable at an aggregate level from a business point of view, as it will be covering the lost amount of loans in which the amount borrowed has been completely lost by predicting to most customers a loss level of between 25% and 75% even those who ultimately fully paid their loans, thus covering the aggregate risk of the client portfolio.</p>
+
+
+			<p><strong><u>Final Expected Loss model (EL)</u></strong></p>
+			</p>Once the probability of default, exposure at default and loss given default models have been developed, the expected loss (EL) for each new loan application is obtained by simply combining the predictions of these models and the principal amount of the loan as discussed in the methodology section.</p>
+			<div style="text-align: center;">
+    					<img src="imagen1.png" alt="Project Design Image" style="width: 40%; height: auto; aspect-ratio: 11.5 / 1;">
+				</div>
+
+			
+
+
+			</div>
+			<li class="toggle-section" onclick="toggleNested(2, 9)">9. Web app</li>
+                        <div class="nested-content" id="nested-2-9">
+			<p>In order to get the most value out of the developed machine learning models, it is important to seamlessly deploy it into production so employees can start using them to make practical decisions.</p>
+			<p>To this end, a prototype web application has been designed. This web app collects, on the one hand, the internal data that the company has for each client and on the other hand, the information provided by the borrower itself through a loan application.</p>
+			<button class="launch-button" onclick="window.location.href='https://appriskscoring-ehuke5ze63jgdfmnspqoqx.streamlit.app/';">
+    				Launch Credit Risk Analyzer Web App!
+			</button>
+			<style>
+				launch-button {
+        				background-color: #d3d3d3; /* Fondo gris */
+        				color: black; /* Color del texto */
+        				padding: 20px 40px;
+        				font-size: 16px;
+        				border: none;
+        				border-radius: 5px;
+        				cursor: pointer;
+        				text-align: center;
+        				display: inline-block;
+        				width: auto; /* El botón se ajustará al ancho del texto */
+        				opacity: 0;
+        				animation: fadeIn 1s forwards; /* Efecto de aparición */
+					margin: 0 auto; /* Centrado horizontal */
+        				display: block; /* Asegurarse de que el botón sea un bloque para centrado */
+        				transition: background-color 0.3s ease; /* Suavizar el efecto hover */
+    
+    				}
+
+    				.launch-button:hover {
+        				background-color: #b0b0b0; /* Efecto hover para el botón */
+    				}
+
+    				@keyframes fadeIn {
+        				0% {
+            					opacity: 0;
+        				}
+        				100% {
+            					opacity: 1;
+        				}
+    				}
+			</style>
+
+			</div>
                     </ul>
                 </div>
             </div>
-            <!-- Columna 2 -->
+
             <div class="project-column">
                 <img src="imagen_abandono.jpg" alt="Employee Retention Project">
                 <a href="https://employee-retention-analyzer-3djcxzp58ahwzwajrmjhy6.streamlit.app/" target="_blank">EMPLOYEE RETENTION ANALYZER</a>
@@ -207,7 +497,15 @@
                 moreInfoBtn.textContent = "Less Info";
             }
         }
+
+        function toggleNested(projectId, sectionId) {
+            const nestedContent = document.getElementById(`nested-${projectId}-${sectionId}`);
+            nestedContent.style.display = nestedContent.style.display === "block" ? "none" : "block";
+        }
     </script>
 </body>
 </html>
+
+
+
 
