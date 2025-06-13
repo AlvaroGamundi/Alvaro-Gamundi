@@ -268,8 +268,8 @@
 			<p></p>	
 			</div>
 
-			<li class="toggle-section" onclick="toggleNested(1, 6)">6. 🧹 Data Cleaning</li>
-			<div class="nested-content" id="nested-1-6">
+			<li class="toggle-section" onclick="toggleNested(1, 5)">5. 🧹 Data Cleaning</li>
+			<div class="nested-content" id="nested-1-5">
     			   <p>At this stage, the text variable — containing the user tweets — was preprocessed to remove noise that could negatively affect model performance. Tweets often include a variety of elements that do not contribute to sentiment analysis and can mislead or clutter the learning process.</p>
     			   <p>The following cleaning operations were applied:</p>
 			   <ul>
@@ -284,8 +284,8 @@
 			<p></p>	
 			</div>
 
-			<li class="toggle-section" onclick="toggleNested(1, 7)">7. 🔄 Variable Transformation</li>
-			<div class="nested-content" id="nested-1-7">
+			<li class="toggle-section" onclick="toggleNested(1, 6)">6. 🔄 Variable Transformation</li>
+			<div class="nested-content" id="nested-1-6">
 
 
   			    <p>Before detailing the specific transformations applied, it's important to note that multiple models were tested prior to selecting the final one. These included:</p>
@@ -326,8 +326,8 @@
   			<p>This transformation allowed the model to perform <strong>multi-class classification</strong> efficiently using a categorical loss function like <strong>CrossEntropyLoss</strong>.</p>
 			</div>
 
-			<li class="toggle-section" onclick="toggleNested(1, 8)">8. 🧠 Model Training with BERT</li>
-			<div class="nested-content" id="nested-1-8">
+			<li class="toggle-section" onclick="toggleNested(1, 7)">7. 🧠 Model Training with BERT</li>
+			<div class="nested-content" id="nested-1-7">
     			   <p>To properly assess model performance and select the best architecture, the dataset was first split into training, validation, and test sets:</p>
 				<ul>
     					<li>
@@ -377,8 +377,8 @@
 			  <p></p>	
 			  </div>
 
-			<li class="toggle-section" onclick="toggleNested(1, 9)">9. 📈 Final Results</li>
-			<div class="nested-content" id="nested-1-9">
+			<li class="toggle-section" onclick="toggleNested(1, 8)">8. 📈 Final Results</li>
+			<div class="nested-content" id="nested-1-8">
     			   <p>For training, a <strong>GPU provided by Google Colab</strong> was used, which significantly accelerated the fine-tuning of the BERT model.</p>
 			  <p>The final model achieved an <strong>F1-score (weighted average) of 0.84</strong> on both the validation and test sets, indicating:
 				<ul>
@@ -413,8 +413,8 @@
 		
 		        </div>
 
-			<li class="toggle-section" onclick="toggleNested(1, 10)">10. 🚀 Production Deployment</li>
-			<div class="nested-content" id="nested-1-10">
+			<li class="toggle-section" onclick="toggleNested(1, 9)">9. 🚀 Production Deployment</li>
+			<div class="nested-content" id="nested-1-9">
 			<p>To deploy the sentiment classification system, a <strong>production-ready architecture</strong> was implemented, allowing users to access the application through <strong>login or registration</strong>.</p>
 			
 
@@ -479,8 +479,8 @@
 			</div>
 			
 
-			<li class="toggle-section" onclick="toggleNested(1, 11)">11. ☁️ Cloud Deployment</li>
-			<div class="nested-content" id="nested-1-11">
+			<li class="toggle-section" onclick="toggleNested(1, 10)">10. ☁️ Cloud Deployment</li>
+			<div class="nested-content" id="nested-1-10">
 			<p>To make the application available online and production-ready, a cloud-based deployment pipeline was implemented using <strong>Docker</strong>, <strong>AWS ECR</strong>, and <strong>AWS App Runner</strong>.</p>
 
 			<p><strong> 🐳 Docker Containerization</strong></p>
@@ -549,8 +549,8 @@
 			<p>This approach made it easy to deploy the backend to the cloud, making it publicly accessible and ready to connect with the frontend.</p>
 			</div>
 
-			<li class="toggle-section" onclick="toggleNested(1, 12)">12. 🌐 Frontend Deployment with Vercel</li>
-			<div class="nested-content" id="nested-1-12">
+			<li class="toggle-section" onclick="toggleNested(1, 11)">11. 🌐 Frontend Deployment with Vercel</li>
+			<div class="nested-content" id="nested-1-11">
 			<p>The frontend of the application was developed using <strong>React</strong> and deployed via <strong>Vercel</strong>, a platform that offers instant hosting for frontend applications with continuous integration.</p>
 			<p><strong> 🧱 Frontend Stack and Structure</strong></p>
 			<p>The frontend communicates with the backend via <code>fetch</code> requests using the <code>POST</code> method. Key aspects include:</p>
@@ -577,8 +577,8 @@
 			<p>The React app was deployed on <strong>Vercel</strong>, which automatically detects changes pushed to GitHub and performs the build and deployment process seamlessly.</p>
 			</div>
 
-			<li class="toggle-section" onclick="toggleNested(1, 13)">13. 💡 Future Work</li>
-			<div class="nested-content" id="nested-1-13">
+			<li class="toggle-section" onclick="toggleNested(1, 12)">12. 💡 Future Work</li>
+			<div class="nested-content" id="nested-1-12">
 <p>Although the application is functional and production-ready, there are several areas that could be improved or expanded in future iterations:</p>
 
 <ul>
