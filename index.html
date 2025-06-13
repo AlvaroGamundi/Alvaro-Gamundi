@@ -6,6 +6,25 @@
     <title>Alvaro Gamundi - Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
+
+
+	.dataset-link {
+    		color: #007BFF;
+    		font-weight: bold;
+    		text-decoration: none;
+    		font-size: 1rem;
+    		padding: 0; /* sin borde ni relleno */
+    		border: none;
+    		background: none;
+	}
+
+	.dataset-link:hover {
+    		text-decoration: underline;
+    		color: #0056b3;
+	}
+
+
+
         body {
             background-color: #f1f1f1;
             color: black;
@@ -62,17 +81,18 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        .project-column a {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: black;
-            text-decoration: none;
-            display: inline-block;
-            padding: 8px 12px;
-            border: 2px solid transparent;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
+        .project-column a:not(.dataset-link) {
+    		font-size: 1.5rem;
+    		font-weight: bold;
+    		color: black;
+    		text-decoration: none;
+    		display: inline-block;
+    		padding: 8px 12px;
+    		border: 2px solid transparent;
+    		border-radius: 5px;
+    		transition: all 0.3s ease;
+	}
+
 
         .project-column a:hover {
             background-color: #d6d6d6;
@@ -145,6 +165,474 @@
         <div class="typing-container" id="typing-text"></div>
 
         <div class="projects">
+
+	    <div class="project-column">
+                <img src="flight.jpg" alt="Flight Experience Feedback Project">
+                <a href="https://frontend-app-flights.vercel.app///" target="_blank">FLIGHT EXPERIENCE FEEDBACK ANALYZER</a>
+                <a href="javascript:void(0);" class="more-info-btn" id="more-info-btn-4" onclick="toggleMoreInfo(4)">More Info</a>
+                <div class="more-info-content" id="more-info-4">
+                    <h3>Table of Contents:</h3>
+                    <ul>
+			<li class="toggle-section" onclick="toggleNested(1, 1)">1. 📌 Introduction</li>
+			<div class="nested-content" id="nested-1-1">
+    			   <p>This project aims to build an intelligent system capable of <strong>predicting the sentiment of user comments about flight experiences</strong>. For this purpose, a dataset from Kaggle was used, containing <strong>real tweets from passengers</strong> about flights with different airlines.</p>
+			   <p>The ultimate goal is to develop a <strong>production-ready web application</strong> where users can share their opinions about their flights, and the system, using natural language processing (NLP) models, automatically classifies the comments as <strong>positive</strong>, <strong>negative</strong>, or <strong>neutral</strong>.</p>
+			   <p>This way, airlines can use the collected information to:</p>
+			   <ul>
+        			<li>Monitor customer satisfaction in real-time.</li>
+        			<li>Identify areas for service improvement.</li>
+        			<li>Make data-driven decisions.</li>
+    			   </ul>
+			   <p></p>
+			</div>
+
+
+			<li class="toggle-section" onclick="toggleNested(1, 2)">2. 📊 Dataset</li>
+			<div class="nested-content" id="nested-1-2">
+			   <p>The dataset was extracted from Kaggle and can be found at the following link:<br><a href="https://www.kaggle.com/code/serkanp/sentiment-analysis-of-airline-tweets-and-comments" class="dataset-link" target="_blank">Sentiment Analysis of Airline Tweets and Comments</a></p>
+    			   
+			   <p>It is a CSV file containing <strong>15 columns</strong> and <strong>14,640 rows</strong> of tweets from users sharing their flight experiences.</p>
+			   <p>The key variables used in this project are:</p>
+			   <ul>
+        			<li><strong>text:</strong> The tweet text published by the user about their flight experience with a specific airline.</li>
+        			<li><strong>airline_sentiment:</strong> The target variable, which classifies the sentiment of the experience into <strong>positive</strong>, <strong>negative</strong>, or <strong>neutral</strong>.</li>
+        		   </ul>
+			   <p>These two variables are the core of the sentiment analysis modeling.</p>
+			   <p></p>
+			</div>
+
+
+			<li class="toggle-section" onclick="toggleNested(1, 3)">3. 🧪 Model Development</li>
+			<div class="nested-content" id="nested-1-3">
+    			   <p>In this stage, I focused on obtaining the best possible model to deploy in a production environment. To achieve this, I conducted an exploratory data analysis that helped me understand the behavior of the text and evaluate whether it was feasible to use more traditional probabilistic models, such as <strong>Naive Bayes</strong>.</p>
+			   <p>I also performed thorough text preprocessing, selected appropriate evaluation metrics, and tested various models, comparing their performance using <strong>fine-tuning techniques</strong>. This process allowed me to select the most robust model in terms of <strong>accuracy</strong> and <strong>generalization</strong>.</p>
+    			 </div>
+
+			<li class="toggle-section" onclick="toggleNested(1, 4)">4. 📊 EDA (Exploratory Data Analysis)</li>
+			<div class="nested-content" id="nested-1-4">
+    			   <p>In this section, I performed an exploratory analysis of the <strong>text</strong> variable in relation to the <strong>airline_sentiment</strong> label.</p>
+    			   <p>The goal was to identify <strong>statistical patterns</strong> that help understand how the textual data is structured depending on the sentiment (positive, neutral, or negative).</p>
+			   <p>Some of the key analyses included:</p>
+			   <ul>
+        			<li><strong>Number of words per tweet</strong></li>
+        			<li><strong>Number of unique words per tweet</strong></li>
+				<li><strong>Average word length per tweet</strong></li>
+        			<li><strong>Total number of characters per tweet</strong></li>
+				<li><strong>Class balance across sentiment categories</strong></li>
+        		   </ul>
+			   <p>This EDA step was essential to assess the </strong>feasibility of simpler models</strong> and guided decisions in <strong>text cleaning</strong>, <strong>tokenization</strong>, and <strong>feature selection</strong>.</p>
+			   <p></p>
+			</div>
+
+			<li class="toggle-section" onclick="toggleNested(1, 5)">5. 🧠 Insights from Exploratory Analysis</li>
+			<div class="nested-content" id="nested-1-5">
+    			   <p>From the exploratory analysis of the text data, several key insights emerge:</p>
+    			   <ul>
+    				<li>
+        				<strong>Tweet Length (in words):</strong><br>Negative tweets tend to be longer on average, peaking around 22–25 words. In contrast, positive and neutral tweets are generally shorter and more dispersed. This suggests that users are more verbose when expressing dissatisfaction.<br>
+        				<img src="WPT1.jpg" alt="Words per tweet" style="display: block; margin: 20px auto; max-width: 90%; width: 700px; height: auto; border-radius: 10px;">
+    				</li>
+
+    				<li>
+        				<strong>Number of Unique Words:</strong><br>Negative tweets also exhibit a higher number of unique words per tweet, indicating a richer vocabulary likely used to detail complaints. Positive and neutral tweets show a more modest and uniform distribution of unique terms.<br>
+        				<img src="WPT2.jpg" alt="Unique words per tweet" style="display: block; margin: 20px auto; max-width: 90%; width: 700px; height: auto; border-radius: 10px;">
+    				</li>
+
+    				<li>
+        				<strong>Average Word Length:</strong><br>Across all sentiment categories, the average word length remains fairly stable, typically between 4 and 6 characters. This implies that while users may write more when unhappy, the complexity of the vocabulary used does not vary significantly with sentiment.<br>
+        				<img src="WPT3.jpg" alt="Average word length" style="display: block; margin: 20px auto; max-width: 90%; width: 700px; height: auto; border-radius: 10px;">
+    				</li>
+
+   				<li>
+        				<strong>Tweet Length (in characters):</strong><br>Similar to word count, tweets labeled as negative often reach the character limit (140–160 characters), whereas positive and neutral tweets are generally shorter. This reinforces the idea that users elaborate more when describing negative experiences.<br>
+        				<img src="WPT4.jpg" alt="Tweet length in characters" style="display: block; margin: 20px auto; max-width: 90%; width: 700px; height: auto; border-radius: 10px;">
+					<strong>Conclusion:</strong><br>These insights confirm that <strong>tweet length and lexical diversity are strong indicators of sentiment polarity</strong>. Negative feedback is usually more detailed, which can be leveraged in model training by including features related to text length or richness. This justifies exploring more advanced models capable of capturing nuanced language patterns beyond simple keyword-based approaches.
+    				</li>
+
+				<p></p>
+    				<li>
+        				<strong>Class Balance Across Sentiment Categories:</strong><br>The dataset shows a clear imbalance across sentiment categories. The <strong>negative</strong> class dominates with over <strong>8,600 tweets</strong>, while the <strong>neutral</strong> and <strong>positive</strong> classes have approximately <strong>2,900</strong> and <strong>2,100</strong> samples, respectively.
+    				</li>
+			</ul>
+			<p>While this imbalance might suggest the need for resampling techniques such as <strong>oversampling</strong> or <strong>undersampling</strong>, it's important to consider the implications:</p>
+			<ul>
+				<li>
+        				<strong>Undersampling</strong> the majority class (negative) could lead to <strong>information loss</strong>, which is especially harmful when using deep models like <strong>BERT</strong> that benefit from large and diverse datasets.
+    				</li>
+				<p></p>	
+				<li>
+        				<strong>Oversampling</strong> the minority classes may introduce <strong>overfitting</strong>, particularly if the same samples are repeated multiple times during training.
+					<img src="balance.jpg" alt="Tweet length in characters" style="display: block; margin: 20px auto; max-width: 90%; width: 700px; height: auto; border-radius: 10px;">
+    				</li>
+			</ul>
+			<p></p>	
+			</div>
+
+			<li class="toggle-section" onclick="toggleNested(1, 6)">6. 🧹 Data Cleaning</li>
+			<div class="nested-content" id="nested-1-6">
+    			   <p>At this stage, the text variable — containing the user tweets — was preprocessed to remove noise that could negatively affect model performance. Tweets often include a variety of elements that do not contribute to sentiment analysis and can mislead or clutter the learning process.</p>
+    			   <p>The following cleaning operations were applied:</p>
+			   <ul>
+  				<li>🔗 <strong>Removing URLs:</strong> Links were stripped from the text since they provide no useful sentiment information and can distort vector representations.</li>
+ 				<li>🧑‍💻 <strong>Replacing user mentions:</strong> Mentions (e.g., <code>@username</code>) were replaced with a generic placeholder to preserve structure without introducing noise.</li>
+  				<li>😀 <strong>Removing emojis:</strong> Emojis were removed to simplify the text and maintain consistency across samples.</li>
+  				<li>🙂 <strong>Eliminating emoticons:</strong> Classic emoticons like <code>:)</code> or <code>:(</code> were also removed, as they may not be interpreted reliably by standard tokenizers.</li>
+  				<li>#️⃣ <strong>Removing the '#' from hashtags:</strong> Hashtag symbols were deleted while preserving the associated words (e.g., <code>#delayed</code> → <code>delayed</code>) to retain semantic meaning.</li>
+  				<li>␣ <strong>Normalizing whitespace:</strong> Extra spaces were removed to avoid tokenization issues.</li>
+			   </ul>
+			   <p>These preprocessing steps were crucial to creating a <strong>clean and standardized corpus</strong>, which improves the <strong>quality of tokenization and vectorization</strong>, and ultimately enhances the model’s accuracy and robustness.</p>	
+			<p></p>	
+			</div>
+
+			<li class="toggle-section" onclick="toggleNested(1, 7)">7. 🔄 Variable Transformation</li>
+			<div class="nested-content" id="nested-1-7">
+
+
+  			    <p>Before detailing the specific transformations applied, it's important to note that multiple models were tested prior to selecting the final one. These included:</p>
+  				<ul>
+    					<li><strong>Naive Bayes</strong></li>
+    					<li><strong>Simple feedforward neural networks</strong></li>
+    					<li><strong>Recurrent neural networks (RNNs)</strong></li>
+  				</ul>
+  			    <p>Each of these models required input features in <strong>different formats</strong>, so the text data needed to be transformed accordingly.</p>
+
+  				<ul>
+    					<li>
+        				<strong>📈 TF-IDF (Term Frequency – Inverse Document Frequency):</strong><br>Used as input for both Naive Bayes and deep feedforward neural networks. This method converts text into sparse numeric vectors by capturing the importance of each word in a document relative to the entire corpus.
+					</li>
+
+    					<li>
+        				<strong>🔤 Word Embeddings with Word2Vec:</strong><br>Applied in the case of recurrent neural networks (RNNs), where each word was transformed into a dense, fixed-size vector. These embeddings capture semantic relationships between words and were either pretrained or trained on the dataset itself.<br>
+    					</li>
+				</ul>
+
+    			   <p>Finally, the model selected for deployment was based on Transformers, specifically using BERT with fine-tuning of the last layers (this process will be explained in more detail in a later section).</p>
+    			   <p>To feed the text data into BERT, the input was tokenized into tensors using a pre-trained BERT tokenizer. This process generated two key components:</p>
+				<ul>
+    					<li>
+        				<strong>input_ids: </strong>the encoded representation of each token (word/subword) in the input text.
+					</li>
+
+    					<li>
+        				<strong>attention_mask </strong>a binary mask that indicates which tokens should be attended to (1) and which are padding (0). This helps BERT ignore padded tokens during computation.
+    					</li>
+				</ul>
+			<p>On the other hand, the target variable (airline_sentiment), originally a column containing the string labels <strong>"positive"</strong>, <strong>"neutral"</strong>, and <strong>"negative"</strong>, was converted into a numeric tensor with values:</p>
+        			<ul>
+    					<li>0 → positive</li>
+    					<li>1 → neutral</li>
+    					<li>2 → negative</li>
+  				</ul>
+  			<p>This transformation allowed the model to perform <strong>multi-class classification</strong> efficiently using a categorical loss function like <strong>CrossEntropyLoss</strong>.</p>
+			</div>
+
+			<li class="toggle-section" onclick="toggleNested(1, 8)">8. 🧠 Model Training with BERT</li>
+			<div class="nested-content" id="nested-1-8">
+    			   <p>To properly assess model performance and select the best architecture, the dataset was first split into training, validation, and test sets:</p>
+				<ul>
+    					<li>
+        				The model was trained on the training set.
+					</li>
+    					<li>
+        				It was evaluated on the validation set after each epoch.
+    					</li>	
+					<li>
+        				Finally, it was tested on unseen data to assess its real-world performance.
+    					</li>
+				</ul>
+    			   <p>The final model used was:</p>
+			   <p>from transformers import BertForSequenceClassification<br>model = BertForSequenceClassification.from_pretrained('bert-base-uncased', num_labels=3)
+			   <p></p>	
+			<p><strong>⚙️ Optimization and Metrics</strong></p> 
+			<p>To train and evaluate the model effectively, the following configuration was used:</p> 
+				<ul>
+    					<li>
+        				<strong>Optimizer</strong>: AdamW, a variant of the Adam optimizer tailored for Transformers, with a learning rate of 3e-5.
+					</li>
+    					<li>
+        				<strong>Loss Function</strong>: CrossEntropyLoss, well-suited for multi-class classification.
+    					</li>	
+					<li>
+        				<strong>Evaluation Metrics</strong>:
+						<ul>
+        						<li>Weighted Precision</li>
+        						<li>Weighted Recall</li>
+      						</ul>
+    					</li>
+				</ul>
+			  <p>These metrics were calculated using <code>torchmetrics</code>, taking class imbalance into account for both training and validation phases.</p>
+			  <p></p>	
+			  <p><strong> 🏆 Best Model Selection Strategy</strong></p> 
+			  <p>To ensure optimal model performance, a validation-based checkpointing approach was used:</p> 
+				<ul>
+    					<li>
+        				After every epoch (and intermittently during training), the model’s performance on the validation set was evaluated.
+					</li>
+    					<li>
+        				If the validation precision improved, the current model state was saved using:
+    					</li>	
+				</ul>
+			  <p>torch.save(best_model_state, "mejor_modelo_por_precision.pt")</p>
+			  <p>This approach ensured that the best model — in terms of correctly classifying sentiments — was retained and later deployed.</p>
+			  <p></p>	
+			  </div>
+
+			<li class="toggle-section" onclick="toggleNested(1, 9)">9. 📈 Final Results</li>
+			<div class="nested-content" id="nested-1-9">
+    			   <p>For training, a <strong>GPU provided by Google Colab</strong> was used, which significantly accelerated the fine-tuning of the BERT model.</p>
+			  <p>The final model achieved an <strong>F1-score (weighted average) of 0.84</strong> on both the validation and test sets, indicating:
+				<ul>
+    					<li>
+        				<strong>Strong generalization performance</strong>
+					</li>
+    					<li>
+        				<strong>No signs of overfitting</strong>
+					</li>
+					<li>
+        				<strong>~10 percentage point improvement</strong> over other models (Naive Bayes, feedforward and recurrent neural networks)
+					</li>
+				</ul>
+			  <p>This performance gain is likely due to <strong>BERT's capacity to capture contextual information</strong> across entire sentences, allowing it to better understand sentiment nuances.</p>
+			  <p>Below are the classification metrics obtained on the <strong>test set</strong>:</p>
+			  <img src="score.jpg" alt="Tweet length in characters" style="display: block; margin: 20px auto; max-width: 90%; width: 700px; height: auto; border-radius: 10px;">
+    				</li>
+			  <p></p>			
+			  <p><strong> 🔍 Class-wise Analysis</strong></p> 
+				<ul>
+    					<li>
+        				<strong>Positive (0)</strong>: The model achieves <strong>0.84 precision</strong> and <strong>0.76 recall</strong>, resulting in an <strong>F1-score of 0.80</strong>. This means it correctly identifies many positive tweets, though some are misclassified as neutral or negative. Still, when it predicts "positive", it is usually right.
+					</li>
+    					<li>
+        				<strong>Neutral (1)</strong>: This is the most challenging class for the model, with the lowest <strong>F1-score (0.69)</strong>, <strong>precision (0.71)</strong>, and <strong>recall (0.68)</strong>. This likely stems from the ambiguous nature of neutral language, which often overlaps with both positive and negative expressions.
+					</li>
+					<li>
+        				<strong>Negative (2)</strong>: This is where the model performs best. With a <strong>0.90 F1-score</strong> and <strong>0.92 recall</strong>, it captures nearly all negative tweets, and with very high <strong>precision (0.89)</strong>. This strong performance is expected due to the abundance and clarity of negative expressions in the dataset.
+					</li>
+				<ul>
+			<img src="f1_score_by_class_blue.png" alt="Tweet length in characters" style="display: block; margin: 20px auto; max-width: 90%; width: 700px; height: auto; border-radius: 10px;">
+		
+		        </div>
+
+			<li class="toggle-section" onclick="toggleNested(1, 10)">10. 🚀 Production Deployment</li>
+			<div class="nested-content" id="nested-1-10">
+			<p>To deploy the sentiment classification system, a <strong>production-ready architecture</strong> was implemented, allowing users to access the application through <strong>login or registration</strong>.</p>
+			
+
+			<p><strong> 🔧 Backend with FastAPI</strong></p>
+			<p>The backend was developed using <strong>FastAPI</strong> and exposes the following main POST endpoints:</p>
+				<ul>
+    					<li>
+        				<strong>/register</strong>: Allows users to create an account
+					</li>
+    					<li>
+        				<strong>/login</strong>: Authenticates users and returns an access token
+					</li>
+					<li>
+        				<strong>/predict</strong>: Receives a text input and returns a sentiment prediction along with a personalized, empathetic message
+					</li>
+				</ul>
+			<p>Example responses based on sentiment:</p>
+				<ul>
+    					<li>
+        				<strong>positive:</strong><br>"We're happy to hear your experience was good! We hope to have you flying with us again soon."<br>
+					</li>
+    					<li>
+        				<strong>neutral:</strong><br>"Thank you for your feedback! We are constantly working to improve our service."<br>
+					</li>
+					<li>
+        				<strong>negative:</strong><br>"We're truly sorry for your experience. We will get in touch with you to improve anything that needs attention."<br>
+					</li>
+				</ul>
+			<p>This approach simulates a <strong>real-world customer service response</strong> tailored to the detected sentiment.</p>
+			<p>All endpoints are automatically documented through FastAPI's interactive interface at /docs, making them easy to test and integrate.</p>
+			<br>
+
+			<p><strong> 🛠️ Authentication and Database</strong></p>
+			<p>To manage user accounts, a <strong>SQL (PostgreSQL)</strong> database was created using <strong>Supabase</strong>, where the following data is stored:</p>
+				<ul>
+    					<li>
+        				Registered user information
+					</li>
+    					<li>
+        				Encrypted passwords
+					</li>
+					
+				</ul>
+			<p>The <strong>backend</strong> handles communication with the database to authenticate users. The <strong>frontend never directly accesses</strong> sensitive data, ensuring greater security.</p>
+			<br>
+
+			<p><strong> 🔐 Security and Encryption</strong></p>
+			<p>Password protection is implemented using <strong>bcrypt</strong> encryption, following industry best practices. Additionally:<p>
+				<ul>
+    					<li>
+        				<strong>JWT tokens</strong> are used for authentication after login
+					</li>
+    					<li>
+        				Only authenticated users can access the /predict endpoint
+					</li>
+					<li>
+        				Passwords are never stored in plain text
+					</li>	
+				</ul>
+			<p>pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")<br>oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/login")<p>
+
+			</div>
+			
+
+			<li class="toggle-section" onclick="toggleNested(1, 11)">11. ☁️ Cloud Deployment</li>
+			<div class="nested-content" id="nested-1-11">
+			<p>To make the application available online and production-ready, a cloud-based deployment pipeline was implemented using <strong>Docker</strong>, <strong>AWS ECR</strong>, and <strong>AWS App Runner</strong>.</p>
+
+			<p><strong> 🐳 Docker Containerization</strong></p>
+			<p>The backend application was containerized using <strong> Docker</strong> to ensure portability and consistency across environments. This process included:</p>
+				<ul>
+    					<li>
+        				Writing a Dockerfile that installs all dependencies and launches the FastAPI app
+					</li>
+    					<li>
+        				Copying the <strong>trained model</strong> directly into the Docker image so that predictions can be made without needing to reload the model externally
+					</li>
+					<li>
+        				Avoiding sensitive or unnecessary files using a .dockerignore file
+					</li>	
+				</ul>
+			<p><strong> 🔥 Dockerfile Highlights</strong></p>
+			<p>The Dockerfile ensured:</p>
+				<ul>
+    					<li>
+        				Lightweight image based on python:3.10-slim
+					</li>
+    					<li>
+        				Installation of dependencies via requirements.txt
+					</li>
+					<li>
+        				Inclusion of model files and backend code
+					</li>
+					<li>
+        				Command to launch FastAPI with Uvicorn
+					</li>		
+				</ul>
+
+			<p><strong> 📁 .dockerignore</strong></p>
+			<p>To keep the image clean and secure, a <code>.dockerignore</code> file was created with the following contents:</p>
+
+			<pre><code>pycache/
+			*.pyc
+			*.pyo
+			.env
+			.git
+			.vscode
+			venv/
+			env/
+			*.log
+			*.sqlite3
+			*.db
+			data/
+			</code></pre>
+
+			<p>This prevents unnecessary files (such as local caches, logs, databases, and development environment folders) from being copied into the Docker image.</p>
+
+			<p>Once the Docker image was built and tested locally, it was pushed to <strong>AWS ECR</strong> (Elastic Container Registry). From there, the backend was deployed using <strong>AWS App Runner</strong>.</p>
+		
+			<p><strong> 🚀 Deployment with AWS ECR & App Runner</strong></p>
+			<p><strong>App Runner</strong> allows applications to be deployed directly from Docker images (hosted in ECR) without the need to manage any servers or infrastructure manually.</p>
+
+			<p>The deployment process involved:</p>
+
+				<ul>
+  					<li>Creating an <strong>ECR</strong> repository and pushing the image containing the backend code</li>
+  					<li>Setting up an <strong>App Runner</strong> service connected to that repository</li>
+  					<li>Configuring the necessary environment variables (such as database URL, secret key, and JWT algorithm)</li>
+  					<li>Verifying that the backend was available over <strong>HTTPS</strong> with basic auto-scaling enabled</li>
+				</ul>
+
+			<p>This approach made it easy to deploy the backend to the cloud, making it publicly accessible and ready to connect with the frontend.</p>
+			</div>
+
+			<li class="toggle-section" onclick="toggleNested(1, 12)">12. 🌐 Frontend Deployment with Vercel</li>
+			<div class="nested-content" id="nested-1-12">
+			<p>The frontend of the application was developed using <strong>React</strong> and deployed via <strong>Vercel</strong>, a platform that offers instant hosting for frontend applications with continuous integration.</p>
+			<p><strong> 🧱 Frontend Stack and Structure</strong></p>
+			<p>The frontend communicates with the backend via <code>fetch</code> requests using the <code>POST</code> method. Key aspects include:</p>
+
+				<ul>
+  					<li>
+    						<strong>Token-based authentication:</strong> The JWT token obtained during login is stored in 
+    						<code>localStorage</code> and included in the <code>Authorization</code> header when making requests to 
+    						<code>/predecir</code>.
+  					</li>
+
+  					<li>
+    						The following <strong>endpoints</strong> are consumed from the backend hosted on App Runner:
+    						<ul>
+      							<li><code>/login</code></li>
+      							<li><code>/registro</code></li>
+      							<li><code>/predecir</code></li>
+    						</ul>
+  					</li>
+				</ul>
+
+			<p>The frontend properly handles authentication errors and model responses, displaying informative messages to the user.</p>
+			<p><strong> 🚀 Deployment on Vercel</strong></p>
+			<p>The React app was deployed on <strong>Vercel</strong>, which automatically detects changes pushed to GitHub and performs the build and deployment process seamlessly.</p>
+			</div>
+
+			<li class="toggle-section" onclick="toggleNested(1, 13)">13. 💡 Future Work</li>
+			<div class="nested-content" id="nested-1-13">
+<p>Although the application is functional and production-ready, there are several areas that could be improved or expanded in future iterations:</p>
+
+<ul>
+  <li>
+    <strong>Improve performance on the "neutral" class</strong><br>
+    The model shows lower precision and recall for neutral tweets. Future work could explore techniques such as:
+    <ul>
+      <li>Data augmentation for underrepresented classes</li>
+      <li>Incorporating sentiment lexicons or external context</li>
+    </ul>
+  </li>
+
+  <li>
+    <strong>Add user feedback collection</strong><br>
+    Allow users to rate the accuracy of the prediction and use that feedback to improve model retraining.
+  </li>
+
+  <li>
+    <strong>Integrate CI/CD pipeline</strong><br>
+    Automate testing and deployment for both backend and frontend using tools like GitHub Actions.
+  </li>
+
+  <li>
+    <strong>Add password recovery and email confirmation</strong><br>
+    Improve the authentication flow by adding options for password reset and verifying user emails via Supabase or a third-party service.
+  </li>
+
+  <li>
+    <strong>Multilingual support</strong><br>
+    Extend the model to classify sentiment in other languages, such as Spanish or French, using multilingual models like <code>bert-base-multilingual-cased</code>.
+  </li>
+
+  <li>
+    <strong>Analytics dashboard for admins</strong><br>
+    Create a dashboard where admins (e.g., airline staff) can see aggregated sentiment trends and filter feedback by time, sentiment, or keywords.
+  </li>
+</ul>
+
+			</div>
+
+
+		</div>
+
+	    </div>
+
+
+
+
+
+
+
+
+
+
             <div class="project-column">
                 <img src="risk_score.jpg" alt="Bank Loan Risk Project">
                 <a href="https://appriskscoring-ehuke5ze63jgdfmnspqoqx.streamlit.app/" target="_blank">BANK LOAN RISK SCORE ANALYZER</a>
@@ -152,8 +640,8 @@
                 <div class="more-info-content" id="more-info-1">
                     <h3>Table of Contents:</h3>
                     <ul>
-			<li class="toggle-section" onclick="toggleNested(1, 1)">1. Introduction</li>
-			<div class="nested-content" id="nested-1-1">    				
+			<li class="toggle-section" onclick="toggleNested(2, 1)">1. Introduction</li>
+			<div class="nested-content" id="nested-2-1">    				
 				<p>The client is an online platform specializing in offering various types of <strong>loans</strong> to <strong>urban customers</strong>. This platform enables borrowers to easily and quickly access loans with <strong>competitive interest rates</strong> through a <strong>user-friendly interface</strong>.</p>
 				<p>When a loan application is received, the company evaluates the applicant's profile to decide whether to approve the loan. Similar to other lending companies, loans granted to <strong>"high-risk"</strong> customers are the primary source of <strong>financial losses</strong>. Therefore, the company aims to identify these <strong>high-risk borrowers</strong> and the potential losses associated with their loans to improve <strong>capital management</strong>, optimize its <strong>loan portfolio</strong>, and enhance its <strong>risk assessment process</strong>.</p>
     			</div>
@@ -546,7 +1034,7 @@
     </div>
 
     <script>
-        const text = "In this space, I showcase the cases I've worked on, focusing on the creation of Machine Learning models and Data Analysis projects. Explore my projects to learn more about my approach and skills."; 
+        const text = "In this space, I showcase the cases I've worked on, focusing on the creation of Machine Learning models, Deep Learning models, and Data Analysis. Explore my projects to learn more about my approach and skills."; 
         let index = 0;
 
         function typeWriter() {
